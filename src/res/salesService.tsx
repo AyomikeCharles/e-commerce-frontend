@@ -74,6 +74,17 @@ const sales = {
             return Promise.reject(err);
         }
 
+    },
+
+
+    async updatepayment(data:string){
+        try{
+            const response = await api.put(`/sales`, {ref:data})
+            return response.data;
+        }catch(err){
+            return Promise.reject(err);
+        }
+
 },
 
 

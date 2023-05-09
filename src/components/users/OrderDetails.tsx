@@ -93,7 +93,7 @@ const UserOrderDetails = () =>{
                                 <div>
                                     <div className="">
                                         {
-                                        info?.transactionStatus !== 'cancel' && 
+                                        info?.transactionStatus !== 'cancel' && info?.transactionStatus !== 'completed' &&
                                         <div className="flex justify-end">
                                             <button className="bg-lime-500 rounded p-2" onClick={showPortal}>cancel transaction</button> 
                                         </div>

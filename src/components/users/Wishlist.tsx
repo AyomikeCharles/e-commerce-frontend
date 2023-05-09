@@ -66,7 +66,7 @@ const Wishlist = () =>{
                     <section id="content">
                             <div className="px-5 py-10">
                                 <div className="mb-12 flex justify-between">
-                                    <h3 className="text-2xl font-bold">Orders</h3>
+                                    <h3 className="text-2xl font-bold">Wishlist</h3>
                                 </div>
 
 

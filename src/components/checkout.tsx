@@ -14,11 +14,11 @@ import region from "../res/stateService";
 import Loading from "./utils/Loading";
 import { S } from "./admin/Region";
 import Spinner from "./utils/Spinner";
-import useAuth from "../res/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const CheckOut = () => {
 
-
+    const navigate = useNavigate()
     const cartItems = useAppSelector(state => state.cart)
     const [section, setSection] = useState('shipping');
     const [lgaInfo, setLgaInfo] = useState('select');
@@ -133,7 +133,7 @@ const CheckOut = () => {
             }else{
                 toast('success')
                 dispatch(emptyCart())
-                //trigger payment
+                navigate(`/payment/${salesMutation.data._id}`)
             }
             setSpinner(false)
         }
@@ -149,7 +149,7 @@ const CheckOut = () => {
             setSpinner(false)
         }
 
-    },[salesMutation.isSuccess, salesMutation.data, salesMutation.isLoading, salesMutation.isError, err, dispatch])
+    },[salesMutation.isSuccess, salesMutation.data, salesMutation.isLoading, salesMutation.isError, err, navigate, dispatch])
     
 
     //change to next or previous

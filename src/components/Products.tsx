@@ -21,6 +21,7 @@ import { Message } from "../slicer/authSlice";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import Spinner from "./utils/Spinner";
 
 
 const Product = ():JSX.Element =>{
@@ -101,7 +102,6 @@ const Product = ():JSX.Element =>{
     
     if (isLoading || SimilarIsLoading)return <Loading/>
 
-    if(isLoading)return <Loading/>
     if(isError){
         return <div className="fixed w-full h-full top-0 left-0 bg-black/90 flex justify-center z-30"><div className="bg-white rounded w-11/12 md:w-[30%] h-[30%] mt-36 pt-10 text-center"><hr className="mb-5"/>{errMessage? errMessage.message : 'Network Error'}</div></div>
     }
@@ -111,9 +111,7 @@ const Product = ():JSX.Element =>{
     if(SimilarIsError){
         return <div className="fixed w-full h-full top-0 left-0 bg-black/90 flex justify-center z-30"><div className="bg-white rounded w-11/12 md:w-[30%] h-[30%] mt-36 pt-10 text-center"><hr className="mb-5"/>{similarErrMessage? similarErrMessage.message : 'Network Error'}</div></div>
     }
-    if(SimilarIsSuccess && SimilarData.hasOwnProperty('stack')){
-        return <div className="fixed w-full h-full top-0 left-0 bg-black/90 flex justify-center z-30"><div className="bg-white rounded w-11/12 md:w-[30%] h-[30%] mt-36 pt-10 text-center"><hr className="mb-5"/>Network Error</div></div>
-    }
+    
 
 
     
@@ -241,7 +239,7 @@ const Product = ():JSX.Element =>{
                             }}
                             >
 
-                    {SimilarIsSuccess && 
+                    {SimilarIsSuccess && SimilarData.hasOwnProperty('stack') ? <div className="flex justify-center"><Spinner/></div>:SimilarIsSuccess && 
                     similarInfo?.data.map((product:Data, i:number)=>
                     {
                         if(product._id !== id){

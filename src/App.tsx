@@ -6,7 +6,8 @@ import Product from './components/Products';
 import CheckOut from './components/checkout';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
-
+import EmailVerification from './components/EmailVerification';
+import ForgetPassword from './components/ForgetPassword';
 
 //admin
 import AdminDahboard from './components/admin/AdminDashboard';
@@ -62,6 +63,11 @@ import UserOrderDetails from './components/users/OrderDetails';
 import UserInvoice from './components/users/Invoice';
 import UserInvoiceDetails from './components/users/InvoiceDetails';
 import Wishlist from './components/users/Wishlist';
+import NewPassword from './components/ChangePassword';
+import Payment from './components/Payment';
+
+
+
 
 
 
@@ -84,6 +90,14 @@ function App() {
           <Route path='/category/:catid' element={<Category/>} />
           <Route path='/login' element={<Login/>} />
           <Route path='/signup' element={<SignUp/>} />
+          <Route path='/verify/:verificationId' element={<EmailVerification/>} />
+          <Route path='/forgetpassword' element={<ForgetPassword/>} />
+          <Route path='/changepassword/:fpcode' element={<NewPassword/>} />
+          <Route path='/payment/:transId' element={<Payment/>} />
+
+
+
+
 
           {/* public route ends */}
 

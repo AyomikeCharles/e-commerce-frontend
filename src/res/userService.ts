@@ -139,6 +139,41 @@ const users = {
     },
 
 
+    async verifyemail(info:object){
+
+        console.log(info)
+      
+        try{
+            const response = await api.put(`/users/verifyemail`, info)
+            return response.data;
+        }catch(err){
+            return Promise.reject(err);
+        }
+    },
+
+    
+
+    async forgetpassword(info:object){
+      
+        try{
+            const response = await api.put(`/users/forgetpassword`, info)
+            return response.data;
+        }catch(err){
+            return Promise.reject(err);
+        }
+    },
+
+    
+
+    async changepassword(info:object){
+      
+        try{
+            const response = await api.put(`/users/changepassword`, info)
+            return response.data;
+        }catch(err){
+            return Promise.reject(err);
+        }
+    },
 
 
 }

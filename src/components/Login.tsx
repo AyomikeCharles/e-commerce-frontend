@@ -97,7 +97,7 @@ useEffect(()=>{
                                     
                                 </div>
                                 <div className="text-right mt-5">
-                                    <Link to="/" className="hover:text-lime-500 transition duration-500">Forget password?</Link>
+                                    <Link to="/forgetpassword" className="hover:text-lime-500 transition duration-500">Forget password?</Link>
                                 </div>
                                 <Botton
                                     spinner={spinner}
