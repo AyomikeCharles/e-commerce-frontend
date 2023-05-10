@@ -1,9 +1,9 @@
 import Navbar from "./utils/Navbar";
 import Footer from "./utils/Footer";
 import { useParams } from "react-router-dom";
-import { useState, useRef  } from 'react';
+import { useState, useRef, useEffect  } from 'react';
 import { useAppDispatch } from "..";
-import { addToCart } from "../slicer/cartSlice";
+import { Item, addToCart } from "../slicer/cartSlice";
 //swiper component and swiper css
 import { Swiper, SwiperSlide, SwiperRef } from 'swiper/react';
 import 'swiper/css';
@@ -22,6 +22,12 @@ import { Message } from "../slicer/authSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Spinner from "./utils/Spinner";
+import { useMutation } from "react-query";
+import wishlist from "../res/wishlist";
+import useAuth from "../res/useAuth";
+import { ToastContainer, toast } from "react-toastify";
+
+
 
 
 const Product = ():JSX.Element =>{
@@ -30,6 +36,7 @@ const Product = ():JSX.Element =>{
     let  productId = useParams();
     let id = productId.id;
     let dispatch = useAppDispatch()
+    const { id:Id } = useAuth()
     
 
     const {data, isLoading, error, isSuccess, isError} = products.useGetOneProduct(id as string)
@@ -56,7 +63,7 @@ const Product = ():JSX.Element =>{
     }
 
 
-    const newCartItems = {
+    const newCartItems:Item = {
         id:info?._id, 
         price:info?.price, 
         title:info?.title, 
@@ -99,6 +106,33 @@ const Product = ():JSX.Element =>{
     const similarInfo = SimilarData as DataObject
     let errMessage = err?.response?.data as Message
     let similarErrMessage = similarErr?.response?.data as Message
+
+
+
+    //add to wishlist
+    const addToWishList = useMutation({
+        mutationFn:(product:Data)=>{
+            return wishlist.addWishlist(product, Id)
+        }
+    })
+    const addWishlist = () =>{
+        addToWishList.mutate(info)
+    }
+
+    useEffect(()=>{
+
+        if(addToWishList.isLoading){
+            //do something
+        }
+
+        if(addToWishList.isSuccess){
+            toast(addToWishList.data.message)
+        }
+
+        if(addToWishList.isError){
+            console.log(addToWishList.error)
+        }
+    }, [addToWishList.isError, addToWishList.isLoading, addToWishList.isSuccess, addToWishList.error, addToWishList.data])
     
     if (isLoading || SimilarIsLoading)return <Loading/>
 
@@ -207,6 +241,9 @@ const Product = ():JSX.Element =>{
                             <Link onClick={()=>dispatch(addToCart(newCartItems))} to='/checkout' className="bg-lime-500 px-5 py-3 rounded mx-3 transition duration-500  hover:bg-lime-700">
                                 Buy Now
                             </Link>
+
+                            {Id !== '' && <button onClick={addWishlist}>wishlisticon</button>}
+                           
                         </div>
 
                         <div className="my-10">
@@ -272,6 +309,7 @@ const Product = ():JSX.Element =>{
             </section>
             }
             <Footer/>
+            <ToastContainer/>
         </>
     )
 }

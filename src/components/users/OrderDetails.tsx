@@ -1,5 +1,5 @@
 import { AxiosError } from "axios";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import sales from "../../res/salesService";
 import { Info } from './Orders'
 import { createPortal } from "react-dom";
@@ -93,10 +93,17 @@ const UserOrderDetails = () =>{
                                 <div>
                                     <div className="">
                                         {
-                                        info?.transactionStatus !== 'cancel' && info?.transactionStatus !== 'completed' &&
+                                        info?.transactionStatus === 'processing' && info?.paymentStatus === 'unpaid' &&
                                         <div className="flex justify-end">
                                             <button className="bg-lime-500 rounded p-2" onClick={showPortal}>cancel transaction</button> 
                                         </div>
+                                        }
+
+                                        {
+                                            info?.paymentStatus === 'unpaid' &&
+                                            <div className="flex justify-end">
+                                                <Link to={`/payment/${id}`} className="bg-lime-500 rounded p-2">Make Payment</Link> 
+                                            </div>
                                         }
                                         
 
@@ -116,7 +123,7 @@ const UserOrderDetails = () =>{
                                        
                                            
                                             <div className="bg-slate-100 rounded p-5 my-3">
-                                                <h3 className="my-3 text-1xl font-bold">Customer Details</h3>
+                                                <h3 className="my-3 text-1xl font-bold">My Details</h3>
                                                 <h4>{info?.personalDetails[0]}</h4>
                                                 <h4>{info?.shipping}</h4>
                                                 <h4>{info?.personalDetails[2]}</h4>

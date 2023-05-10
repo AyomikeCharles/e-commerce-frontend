@@ -39,7 +39,6 @@ const UserInvoice = () =>{
         setSkip((val-1)*50)
     }
 
-    console.log(data)
 
     
     return(
