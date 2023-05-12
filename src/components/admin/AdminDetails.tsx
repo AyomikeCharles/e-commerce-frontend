@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { AxiosError } from "axios";
 import users from "../../res/userService"
 import { User } from "./Users";

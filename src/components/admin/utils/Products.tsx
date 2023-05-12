@@ -6,7 +6,7 @@ import Loading from "../../utils/Loading";
 import { Message } from "../../../slicer/authSlice";
 import { useState } from 'react'
 import Pagination from "../../utils/Pagination";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 
 const Products : React.FC = ():JSX.Element =>{

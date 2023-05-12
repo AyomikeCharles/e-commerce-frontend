@@ -3,7 +3,7 @@ import categories from "../../res/categoriesService"
 import { AxiosError } from "axios";
 import { Cats } from "../utils/Hero"
 import { Message } from "../../slicer/authSlice";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import Loading from "../utils/Loading";
 
 
