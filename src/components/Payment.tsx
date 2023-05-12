@@ -75,6 +75,13 @@ const Payment = () => {
         metadata:{
           name:product?.personalDetails[0],
           phone:product?.personalDetails[2],
+          custom_fields: [
+            {
+              display_name: 'e-commerce',
+              variable_name: 'e-commerce',
+              value: 'e-commerce',
+            },
+          ],
         },
         publicKey:'pk_test_b95a03dd8244266987f5fbd2ad8b31e10483a5ff',
         text: "Pay Now",
