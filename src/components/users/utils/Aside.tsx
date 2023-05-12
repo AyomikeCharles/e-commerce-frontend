@@ -43,11 +43,6 @@ const Aside = () =>{
                             <Link to='/user/wishlist'>Wishlist</Link>
                         </li>
             
-                       
-
-                        <li className={`my-1 rounded  px-8 ${location.pathname === '/admin/transactions'?'bg-lime-500/50':null} py-3`}>
-                            <Link to='/user/profile'>Profile</Link>
-                        </li>
                         <li className={`my-1 rounded  px-8 py-3`}>
                             <button onClick={handleLogOut}>Logout</button>
                         </li>

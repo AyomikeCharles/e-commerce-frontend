@@ -53,7 +53,6 @@ import AllProducts from './components/AllProducts';
 
 
 //users
-import UserDashboard from './components/users/UserDashboard';
 import UserLayout from './layout/UserLayout';
 import UserProfile from './components/users/UserProfile';
 import UserEditProfile from './components/users/UserEditProfile';
@@ -110,15 +109,12 @@ function App() {
           <Route element={<Protect acceptedRole={[roles.users]}/>}>
             <Route path='/user'  element={<UserLayout/>}>
         
-              <Route index  element={<UserDashboard/>} />
-              <Route path='profile'>
-                <Route index element={<UserProfile/>} />
-                <Route path='editprofille' element={<UserEditProfile/>} />
-                <Route path='changepassword' element={<UserChangePassword/>} />
-              </Route> 
+              <Route index  element={<UserProfile/>} />
+              <Route path='editprofille' element={<UserEditProfile/>} />
+              <Route path='changepassword' element={<UserChangePassword/>} />
 
 
-              <Route path='orders'>
+            <Route path='orders'>
               <Route index element={<UserOrders/>} />
               <Route path='orderdetails/:id' element={<UserOrderDetails/>} />
             </Route>

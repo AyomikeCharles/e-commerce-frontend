@@ -39,7 +39,7 @@ const Wishlist = () =>{
         }
 
         if(removeItem.isError){
-            console.log(removeItem.error)
+            toast('there was an error, please try again')
         }
     }, [removeItem.isError, removeItem.isLoading, removeItem.error, removeItem.data, removeItem.isSuccess])
 
