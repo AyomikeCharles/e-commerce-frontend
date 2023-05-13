@@ -34,7 +34,7 @@ const UserProfile = () => {
                                     
                                 </div>
                                 {isSuccess &&
-                                <div>
+                                <div className="md:PX-10">
                                     
 
                                     <div className="md:flex">
@@ -44,7 +44,7 @@ const UserProfile = () => {
                                         </div>
                                         <div className="basis-1/4 flex justify-end my-3">
                                             <div>
-                                                <Link className="block rounded transition duration-500 hover:bg-lime-500/50 p-1" to='/user/editprofille'>Edit Profile</Link>
+                                                <Link className="block rounded transition duration-500 hover:bg-lime-500/50 p-1 mb-2" to='/user/editprofille'>Edit Profile</Link>
                                                 <Link className="block rounded transition duration-500 hover:bg-lime-500/50 p-1" to='/user/changepassword'>Change Password</Link>
                                             </div>
                                         </div>

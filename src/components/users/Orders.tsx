@@ -72,7 +72,7 @@ const UserOrders = () =>{
 
                             {isSuccess && data?.data.length === 0 ? <div>You have not made any Purchase yet </div>:
 
-                                <div>
+                                <div className="md:px-10">
 
                                 <form>
                                     <div className="flex md:w-1/2 my-10 drop-shadow">
@@ -83,7 +83,7 @@ const UserOrders = () =>{
                                             name='search'
                                             value={search}
                                             onChange={handleChange}
-                                            placeholder="search by name, price, description or category"
+                                            placeholder="search orders"
                                             className="border p-2 rounded-l focus:outline-none w-full bg-slate-50"  
                                             />
                                     </div>

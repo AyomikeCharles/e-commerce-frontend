@@ -50,7 +50,7 @@ const UserInvoice = () =>{
                                     <h3 className="text-2xl font-bold">Invioce</h3>
                                 </div>
                                 {isSuccess &&
-                                <div>
+                                <div className="md:px-10">
                                     <div>
 
     <                               form>
@@ -62,7 +62,7 @@ const UserInvoice = () =>{
                                                 name='search'
                                                 value={search}
                                                 onChange={handleChange}
-                                                placeholder="search by name, price, description or category"
+                                                placeholder="search invoice"
                                                 className="border p-2 rounded-l focus:outline-none w-full bg-slate-50"  
                                                 />
                                         </div>

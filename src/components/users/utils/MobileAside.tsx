@@ -68,23 +68,23 @@ const MobileAside:React.FC<Props> = ({open, changeOpenState}):JSX.Element =>{
                 <div className="flex text-lg py-10">
             
                     <ul>
-                    <li onClick={changeOpenState} className={`my-1 rounded  px-8 ${location.pathname === '/admin/dashboard'?'bg-lime-500/50':null} py-3`}>
+                    <li onClick={changeOpenState} className={`my-1 rounded  px-8 py-3`}>
                             <FontAwesomeIcon icon={faDashboard} size='lg' className='drop-shadow-sm mr-3 text-lime-500'/>
                             <Link to='/user'>Dashboard</Link>
                         </li>
     
                         
-                        <li onClick={changeOpenState} className={`my-1 rounded  px-8 ${location.pathname === '/user/orders'?'bg-lime-500/50':null} py-3`}>
+                        <li onClick={changeOpenState} className={`my-1 rounded  px-8 py-3`}>
                             <FontAwesomeIcon icon={faList} size='lg' className='drop-shadow-sm mr-3 text-lime-500'/>
                             <Link to='/user/orders'>Orders</Link>
                         </li>
 
-                        <li onClick={changeOpenState} className={`my-1 rounded  px-8 ${location.pathname === '/user/invoice'?'bg-lime-500/50':null} py-3`}>
+                        <li onClick={changeOpenState} className={`my-1 rounded  px-8 py-3`}>
                             <FontAwesomeIcon icon={faReceipt} size='lg' className='drop-shadow-sm mr-3 text-lime-500'/>
                             <Link to='/user/invoice'>Invoice</Link>
                         </li>
 
-                        <li onClick={changeOpenState} className={`my-1 rounded  px-8 ${location.pathname === '/user/wishlist'?'bg-lime-500/50':null} py-3`}>
+                        <li onClick={changeOpenState} className={`my-1 rounded px-8 py-3`}>
                             <FontAwesomeIcon icon={faHeart} size='lg' className='drop-shadow-sm mr-3 text-lime-500'/>
                             <Link to='/user/wishlist'>Wishlist</Link>
                         </li>

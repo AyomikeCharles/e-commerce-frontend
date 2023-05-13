@@ -8,6 +8,8 @@ import { Data } from "../utils/Products"
 import { useMutation } from "react-query"
 import { useEffect } from "react"
 import { ToastContainer, toast } from "react-toastify"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTrash } from "@fortawesome/free-solid-svg-icons"
 
 
 const Wishlist = () =>{
@@ -66,24 +68,26 @@ const Wishlist = () =>{
                             </div>
 
 
-                            <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+                            <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4  md:px-10">
                                 {isError?
                                 
                                 <div>{errMessage? errMessage.message : 'Network Error'}</div>
     
                                 : isSuccess && data?.product.map((product:Data)=>(
                                     
-                                    <div key={product._id}>
-                                    <Link to={`/product/${product._id}`}>
-                                        <div  className="max-w-sm shadow-lg rounded overflow-hidden">
-                                            <img className="w-full h-40 hover:scale-105 md:h-48 transition duration-500" src={product.images[0]} alt="Sunset in the mountains"/>
-                                            <div className="p-2 drop-shadow-lg">
-                                                <div className="text-lg truncate ...">{product.title}</div>
-                                                <div className="font-bold text-md">${product.price}</div>
+                                    <div key={product._id} className="max-w-sm shadow-lg rounded">
+                                        <Link to={`/product/${product._id}`}>
+                                            <div>
+                                                <img className="w-full h-40 hover:scale-105 md:h-48 transition duration-500" src={product.images[0]} alt=""/>
+                                                <div className="p-2 drop-shadow-lg">
+                                                    <div className="text-lg truncate ...">{product.title}</div>
+                                                    <div className="font-bold text-md">${product.price}</div>
+                                                </div>
                                             </div>
+                                        </Link>
+                                        <div className="flex justify-end px-3 text-red-500">
+                                            <button onClick={()=>remove(product._id)} ><FontAwesomeIcon icon={faTrash}/></button>
                                         </div>
-                                    </Link>
-                                        <button onClick={()=>remove(product._id)} >remove</button>
                                     </div>
                                 ))
                                 }

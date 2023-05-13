@@ -34,7 +34,7 @@ const Nav = () =>{
     return(
         <>
             <nav className="w-full bmd:flex justify-between px-10 py-5 bg-slate-800 text-white">
-                <div className='mb-3 bmd:mb-0'>
+                <div className='block bmd:hidden mb-3 bmd:mb-0'>
                     <div className='flex justify-between bmd:hidden'>
                         <div>
                             <span className='mr-5' onClick={handleAsideState}><FontAwesomeIcon icon={faBars} size='lg'  /></span>
@@ -47,12 +47,17 @@ const Nav = () =>{
                         </ul>
                     </div>
                 </div>
-                <div className='justify-center'>
+                <div className='w-6/12'>
                     <form>
                         <input type="text" value={search} onChange={handleChange} className='w-5/6 text-black px-2 focus:outline-none rounded-l h-10'/>
                         <button onClick={handleSearch} className='w-1/6 bg-lime-500 rounded-r h-10 text-white'><FontAwesomeIcon icon={faSearch}/></button>
                     </form>
                 </div>
+                    <ul className="hidden bmd:flex bmd:justify-end mt-2">
+                        <li className='relative mx-5'><span className='text-sm hover:text-lime-500 transition duration-500'><FontAwesomeIcon icon={faBell} size='lg' className='text-lime-500' /></span><span className='bg-white absolute -top-2 -right-[2px] w-4 h-4 text-black text-center text-[9px] rounded-[50%]'>0</span></li>
+                        <li onClick={handleCartState} className='relative hover:cursor-pointer'><FontAwesomeIcon icon={faShoppingCart} size='lg' className='text-lime-500'/><span className='bg-white absolute -top-2 -right-[4px] w-4 h-4 text-black text-center text-[9px] rounded-[50%]'>{cartCount?.totalQty}</span></li>
+                    </ul>
+                
             </nav>
             <Cart open={isOpen} changeOpenState ={handleCartState}/>
 

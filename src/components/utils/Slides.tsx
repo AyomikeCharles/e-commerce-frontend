@@ -26,19 +26,19 @@ const Slides = ():JSX.Element=>{
                 >
                 <SwiperSlide>
                     <div>
-                        <img className="rounded h-[150px]" src={fashion} alt="carousel one" loading='lazy'/>
+                        <img className="rounded w-full h-[150px]" src={fashion} alt="carousel one" loading='lazy'/>
                     </div>
                 </SwiperSlide>
                 
                 <SwiperSlide>
                     <div>
-                        <img className="rounded h-[150px]" src={electronics} alt="carousel two" loading='lazy'/>
+                        <img className="rounded w-full h-[150px]" src={electronics} alt="carousel two" loading='lazy'/>
                     </div>
                 </SwiperSlide>
 
                 <SwiperSlide>
                     <div>
-                        <img className="rounded h-[150px]" src={menFashion} alt="carousel three" loading='lazy'/>
+                        <img className="rounded w-full h-[150px]" src={menFashion} alt="carousel three" loading='lazy'/>
                     </div>
                 </SwiperSlide>
 
