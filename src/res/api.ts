@@ -4,7 +4,7 @@ import TokenService from "./tokenService"
 
 const instance = axios.create({
     withCredentials:true,
-    baseURL:'https://e-comm-nrk8.onrender.com'
+    baseURL:'https://e-comm-nrk8.onrender.com/api'
 })
 
 instance.interceptors.request.use(
