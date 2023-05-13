@@ -46,33 +46,38 @@ const Search = ():JSX.Element=>{
             <Navbar/>
 
             <section className="py-24 mx-10">
-                <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
-                        
-                        {
-                            isSuccess && info?.data.map((product)=>(
+                {isSuccess && info?.data.length === 0 ? <div className="text-center my-10">cannot find any product that matches your search</div> :
+                    <>
+                   
+                    <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
                             
-                            <Link key={product._id} to={`/product/${product._id}`}>
-                            
-                                <div  className="max-w-sm rounded overflow-hidden shadow-lg">
-                                    <img className="w-full h-40 md:h-48 hover:scale-105 transition duration-500" src={product.images[0]} alt="Product"/>
-                                    <div className="p-2">
-                                        <div className="text-lg truncate ...">{product.title}</div>
-                                        <div className="font-bold text-md">${product.price}</div>
+                            {
+                                isSuccess && info?.data.map((product)=>(
+                                
+                                <Link key={product._id} to={`/product/${product._id}`}>
+                                
+                                    <div  className="max-w-sm rounded overflow-hidden shadow-lg">
+                                        <img className="w-full h-40 md:h-48 hover:scale-105 transition duration-500" src={product.images[0]} alt="Product"/>
+                                        <div className="p-2">
+                                            <div className="text-lg truncate ...">{product.title}</div>
+                                            <div className="font-bold text-md">${product.price}</div>
+                                        </div>
                                     </div>
-                                </div>
-                            </Link>
-                        ))
-                        
-                    }
-                    </div>
-                        <div className="flex justify-center my-10">
-                            <Pagination
-                                total={info?.total}
-                                limit={limit}
-                                page={page}
-                                next={(val:number)=>next(val)}
-                            />
-                    </div>
+                                </Link>
+                            ))
+                            
+                        }
+                        </div>
+                            <div className="flex justify-center my-10">
+                                <Pagination
+                                    total={info?.total}
+                                    limit={limit}
+                                    page={page}
+                                    next={(val:number)=>next(val)}
+                                />
+                        </div>
+                    </>
+                }
             </section>
                 
             <Footer/>

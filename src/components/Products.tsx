@@ -20,7 +20,7 @@ import Loading from "./utils/Loading";
 import { Message } from "../slicer/authSlice";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
 import Spinner from "./utils/Spinner";
 import { useMutation } from "react-query";
 import wishlist from "../res/wishlist";
@@ -235,14 +235,14 @@ const Product = ():JSX.Element =>{
                         </div>
                         
                         <div className="my-3">
-                            <button className="px-5 py-3 rounded transition duration-500  hover:bg-lime-600 border-2" onClick={()=>dispatch(addToCart(newCartItems))}>
+                            <button className="p-2 rounded transition duration-500  hover:bg-lime-600 border-2" onClick={()=>dispatch(addToCart(newCartItems))}>
                                 Add to Cart
                             </button> 
-                            <Link onClick={()=>dispatch(addToCart(newCartItems))} to='/checkout' className="bg-lime-500 px-5 py-3 rounded mx-3 transition duration-500  hover:bg-lime-700">
+                            <Link onClick={()=>dispatch(addToCart(newCartItems))} to='/checkout' className="bg-lime-500 p-3 rounded mx-3 transition duration-500  hover:bg-lime-700">
                                 Buy Now
                             </Link>
 
-                            {Id !== '' && <button onClick={addWishlist}>wishlisticon</button>}
+                            {Id !== '' && <button onClick={addWishlist} className="text-lime-500"><FontAwesomeIcon icon={faHeart}/></button>}
                            
                         </div>
 
@@ -256,7 +256,7 @@ const Product = ():JSX.Element =>{
                 
                 <hr className="w-11/12 my-10 mx-auto"/>
 
-                <div className="my-6 md:mx-6 text-xl md:text-2xl font-bold">Similar Products</div>
+                <div className="my-6 md:mx-6 text-xl md:text-2xl font-bold px-5">Similar Products</div>
                 <div className="w-11/12 mx-auto">
 
                     <Swiper

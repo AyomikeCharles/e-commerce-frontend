@@ -25,8 +25,10 @@ const Cart:React.FC<Props> = ({open, changeOpenState}):JSX.Element =>{
             cartDrawer.current?.classList.remove('-right-full')
         }else{
             cartDrawer.current?.classList.add('-right-full')
-            cartDrawer.current?.classList.remove('c-right')
-            cartDrawer.current?.classList.add('cr-right')
+            if(cartDrawer.current?.classList.contains('c-right')){
+                cartDrawer.current?.classList.remove('c-right')
+                cartDrawer.current?.classList.add('cr-right')
+            }
         }
 
     }, [open])

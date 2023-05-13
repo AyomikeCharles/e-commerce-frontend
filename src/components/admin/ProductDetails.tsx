@@ -104,9 +104,9 @@ const Product = ():JSX.Element =>{
 
             {
             isSuccess &&
-                            <div className="px-5 py-10">
+                            <div className="py-10">
                                 <div className="mb-12 flex justify-between">
-                                    <h3 className="text-2xl font-bold">Product Details</h3>
+                                    <h3 className="text-2xl font-bold mx-5">Product Details</h3>
                                    
                                 </div>
                                 <div className="block md:flex justify-center">
@@ -148,7 +148,7 @@ const Product = ():JSX.Element =>{
                                         </Swiper>
 
                                     </div>
-                                    <div className="basis-1/2 px-10 w-full">
+                                    <div className="basis-1/2 px-5 w-full">
 
                                         <div className="text-2xl font-semibold my-1">{info?.title}</div>
                                         <div className="text-lg font-semibold text-lime-500 my-1">N{info?.price}</div>
@@ -176,7 +176,7 @@ const Product = ():JSX.Element =>{
                                         <Link  to={`/admin/products/editproduct/${info._id}`} className="bg-lime-500 px-5 py-3 rounded mx-3 transition duration-500  hover:bg-lime-700">
                                             Edit
                                         </Link>
-                                        <button onClick={()=>setOpenPortal(true)} className="px-5 py-3 rounded transition duration-500  hover:bg-lime-600 border-2">
+                                        <button onClick={()=>setOpenPortal(true)} className="py-2 px-3 rounded transition duration-500  hover:bg-lime-600 border-2">
                                             Delete
                                         </button> 
                                     </div>
@@ -185,9 +185,7 @@ const Product = ():JSX.Element =>{
                                 </div>
                             
 
-                                <hr className="w-10/12 mx-auto"/>
-
-                                <div className="w-10/12 mx-auto my-10">
+                                <div className="w-11/12 mx-auto my-10">
                                     <h3 className="text-2xl font-bold">Description</h3>
                                     <div>{info?.description}</div>
                                 </div>
@@ -202,8 +200,8 @@ const Product = ():JSX.Element =>{
                                     <div className="bg-lime-200 rounded-t py-3 text-lg px-2">Delete Product?</div>
                                     <p className="py-4 border-b px-2">are you sure you want to delete this products</p>
                                     <div className="flex justify-end py-2 px-3">
-                                        <button className="mt-3 mr-1 bg-lime-500 px-2 py-1 rounded inline-flex text-white" onClick={()=>deleteProduct.mutate()}> {spinner ? <Spinner/> : null} delete</button>
-                                        <button className="mt-3 ml-1 bg-gray-200 px-2 py-1 rounded " onClick={()=>setOpenPortal(false)}> cancel </button>
+                                        <button className="mt-3 mr-1 bg-lime-500 px-3 py-2 rounded inline-flex text-white" onClick={()=>deleteProduct.mutate()}> {spinner ? <Spinner/> : null} delete</button>
+                                        <button className="mt-3 ml-1 bg-gray-200 px-3 py-2 rounded " onClick={()=>setOpenPortal(false)}> cancel </button>
                                     </div>
                                 </div>
                             </div>

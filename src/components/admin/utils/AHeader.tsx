@@ -15,7 +15,7 @@ const AHeader = () =>{
 
     return(
         <>
-            <nav className="w-full bmd:flex justify-between px-10 py-5 bg-slate-300 dark:bg-slate-800 dark:text-white">
+            <nav className="w-full bmd:flex justify-between px-10 py-5 bg-slate-800 text-white">
                 <div className='mb-3 bmd:mb-0'>
                     <div className='flex justify-between bmd:hidden'>
                         <span><Link to='/'>logo</Link></span>

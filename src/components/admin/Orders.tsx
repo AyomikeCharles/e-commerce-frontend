@@ -80,7 +80,7 @@ const Orders = () =>{
                                             value={search}
                                             onChange={handleChange}
                                             placeholder="search by name, price, description or category"
-                                            className="border p-2 rounded-l focus:outline-none w-full bg-slate-50 dark:bg-slate-400"  
+                                            className="border p-2 rounded-l focus:outline-none w-full bg-slate-50"  
                                             />
                                     </div>
                                 </form>

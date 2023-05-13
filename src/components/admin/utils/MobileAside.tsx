@@ -32,13 +32,18 @@ const MobileAside:React.FC<Props> = ({open, changeOpenState}):JSX.Element =>{
 
         if(open){
             cartDrawer.current?.classList.add('left0')
-            cartDrawer.current?.classList.remove('minusleft')
             cartDrawer.current?.classList.remove('-left-[100%]')
+            cartDrawer.current?.classList.remove('minusleft')
+
         }else{
-            cartDrawer.current?.classList.remove('left0')
-            cartDrawer.current?.classList.add('minusleft')
+    
             cartDrawer.current?.classList.add('-left-[100%]')
+            if(cartDrawer.current?.classList.contains('left0')){
+                cartDrawer.current?.classList.add('minusleft')
+                cartDrawer.current?.classList.remove('left0')
+            }
         }
+        
 
     }, [open])
 
@@ -91,9 +96,6 @@ const MobileAside:React.FC<Props> = ({open, changeOpenState}):JSX.Element =>{
                         <li onClick={changeOpenState} className={`my-1 rounded  px-8 ${location.pathname === '/admin/admins'?'bg-lime-500/50':null} py-3`}>
                             <Link to='/admin/admins'>Admins</Link>
                         </li>
-                        {/* <li className={`my-1 rounded  px-8 ${location.pathname === '/admin/transactions'?'bg-lime-500/50':null} py-3`}>
-                            <Link to='/admin/transaction'>Transactions</Link>
-                        </li> */}
 
                         <li onClick={changeOpenState} className={`my-1 rounded  px-8 ${location.pathname === '/admin/region'?'bg-lime-500/50':null} py-3`}>
                             <Link to='/admin/region'>Region</Link>

@@ -44,13 +44,15 @@ const Category = ():JSX.Element=>{
         setSkip((val-1)*50)
     }
     
-    
+    console.log(data)
     
     return(
         <>
             <Navbar/>
             <section className="py-16 px-5">
                 <div className="m-3 text-lg font-bold">Products</div>
+                {isSuccess && info?.data.length === 0 ? <div className="text-center my-10">there are no product in this category</div> :
+                <>
                 <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-7">
                     {
                     
@@ -77,7 +79,8 @@ const Category = ():JSX.Element=>{
                             next={(val:number)=>next(val)}
                         />
                    </div>
-
+                   </>
+                }
             </section>
             
             <Footer/>

@@ -51,9 +51,6 @@ const Sidebar = () =>{
                         <li className={`my-1 rounded  px-8 ${location.pathname === '/admin/admins'?'bg-lime-500/50':null} py-3`}>
                             <Link to='/admin/admins'>Admins</Link>
                         </li>
-                        {/* <li className={`my-1 rounded  px-8 ${location.pathname === '/admin/transactions'?'bg-lime-500/50':null} py-3`}>
-                            <Link to='/admin/transaction'>Transactions</Link>
-                        </li> */}
 
                         <li className={`my-1 rounded  px-8 ${location.pathname === '/admin/region'?'bg-lime-500/50':null} py-3`}>
                             <Link to='/admin/region'>Region</Link>

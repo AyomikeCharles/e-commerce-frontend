@@ -26,10 +26,14 @@ const ForgetPassword = ():JSX.Element=>{
 
       if(fpMutation.isSuccess){
         toast(fpMutation.data.message)
+        setSpinner(false)
+
       }
 
       if(fpMutation.isError){
         toast('there was an error, kindly try again')
+        setSpinner(false)
+
       }
       
     },[fpMutation.isError, fpMutation.isLoading, fpMutation.isSuccess, fpMutation.data])
@@ -46,9 +50,10 @@ const ForgetPassword = ():JSX.Element=>{
                     validationSchema={Yup.object({
                         email:Yup.string().required()
                     })}
-                    onSubmit={(value, {setSubmitting})=>{
+                    onSubmit={(value, {setSubmitting, resetForm})=>{
                         fpMutation.mutate(value)
                         setSubmitting(false)
+                        resetForm({values:{email:''}})
                     }}
                 >
                     <Form>

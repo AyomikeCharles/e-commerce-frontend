@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserAlt, faHeadset, faShoppingCart,faAngleDown, faSearch, faBars } from '@fortawesome/free-solid-svg-icons'
+import { faUserAlt, faHeadset, faShoppingCart,faAngleDown, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { Link, useNavigate } from 'react-router-dom';
 import Cart from './Cart'
 import { useState } from 'react'
@@ -47,9 +47,8 @@ const Navbar = ():JSX.Element=>{
                 <div className='flex'>
 
                     <div className='flex-1 w-1/5 text-lime-500 mb-5'>
-                        <FontAwesomeIcon icon={faBars}/>
                         <span className='ml-3'>
-                            Logo
+                            <Link to='/'>Logo</Link>
                         </span>
                     </div>
                     
@@ -62,7 +61,7 @@ const Navbar = ():JSX.Element=>{
                 </div>
                 <div className='justify-center'>
                     <form>
-                        <input type="text" value={search} onChange={handleChange} className='w-5/6 focus:outline-none rounded-l h-10'/>
+                        <input type="text" value={search} onChange={handleChange} className='w-5/6 px-2 focus:outline-none rounded-l h-10'/>
                         <button onClick={handleSearch} className='w-1/6 bg-lime-500 rounded-r h-10 text-white'><FontAwesomeIcon icon={faSearch}/></button>
                     </form>
                 </div>

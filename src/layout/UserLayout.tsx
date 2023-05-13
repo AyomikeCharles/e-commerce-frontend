@@ -6,10 +6,10 @@ const UserLayout = () => {
     return(
         <>
             <section className="bmd:flex">
-                <section id="sidebar" className="basis-3/12">
+                <section id="sidebar" className="basis-2/12">
                     <Aside/>
                 </section>
-                <section className="basis-9/12">
+                <section className="basis-10/12">
                     <Nav/>
                     <Outlet/>
                 </section>

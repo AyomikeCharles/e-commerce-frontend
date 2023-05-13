@@ -32,6 +32,7 @@ const EmailVerification = ():JSX.Element=>{
       }
 
       if(verifyMutation.isSuccess){
+        toast(verifyMutation.data.message)
         setSpinner(false)
       }
 
@@ -50,8 +51,8 @@ const EmailVerification = ():JSX.Element=>{
             <section className="py-24">
                 {verifyMutation.isSuccess && !verifyMutation?.data?.hasOwnProperty('stack') ?
                 
-                <div>
-                    Email has been verifid, login <Link to='/login'>here</Link>
+                <div className="text-center my-10">
+                    Email has been verified, login <Link to='/login'>here</Link>
                 </div>
                 :
                 

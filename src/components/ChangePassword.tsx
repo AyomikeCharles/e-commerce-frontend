@@ -53,9 +53,10 @@ const NewPassword = ():JSX.Element=>{
                         newpassword:Yup.string().required(),
                         cnpassword:Yup.string().required()
                     })}
-                    onSubmit={(value, {setSubmitting})=>{
+                    onSubmit={(value, {setSubmitting, resetForm})=>{
                         fpMutation.mutate(value)
                         setSubmitting(false)
+                        resetForm({values:{newpassword:'', code:Id, cnpassword:''}})
                     }}
                 >
                     <Form>
