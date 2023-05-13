@@ -47,7 +47,7 @@ const Nav = () =>{
                         </ul>
                     </div>
                 </div>
-                <div className='w-6/12'>
+                <div className='md:w-6/12'>
                     <form>
                         <input type="text" value={search} onChange={handleChange} className='w-5/6 text-black px-2 focus:outline-none rounded-l h-10'/>
                         <button onClick={handleSearch} className='w-1/6 bg-lime-500 rounded-r h-10 text-white'><FontAwesomeIcon icon={faSearch}/></button>
