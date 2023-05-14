@@ -1,4 +1,4 @@
-import { faBagShopping, faDashboard, faDoorOpen, faList, faList12, faListAlt, faLocation, faReceipt, faShoppingBag, faTimes, faUser, faUserCheck, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faBagShopping, faDashboard, faDoorOpen, faList12, faListAlt, faLocation, faReceipt, faTimes, faUser, faUserCheck, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from "react-router-dom"

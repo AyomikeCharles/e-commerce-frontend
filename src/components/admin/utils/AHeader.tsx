@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faBell, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faBell, faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
 import MobileAside from './MobileAside';
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
@@ -51,7 +51,8 @@ const AHeader = () =>{
                     </form>
                 </div>
                     <ul className="hidden bmd:flex bmd:justify-end mt-2">
-                        <li className='relative mx-5'><span className='text-sm hover:text-lime-500 transition duration-500'><FontAwesomeIcon icon={faBell} size='lg' className='text-lime-500' /></span><span className='bg-white absolute -top-2 -right-[2px] w-4 h-4 text-black text-center text-[9px] rounded-[50%]'>0</span></li>
+                        <li className='relative mx-3'><span className='text-sm hover:text-lime-500 transition duration-500'><FontAwesomeIcon icon={faBell} size='lg' className='text-lime-500' /></span><span className='bg-white absolute -top-2 -right-[2px] w-4 h-4 text-black text-center text-[9px] rounded-[50%]'>0</span></li>
+                        <li className='relative mx-3'><Link to='/admin/profile'><FontAwesomeIcon icon={faUser} size='lg' className='text-lime-500' /></Link></li>
                        
                     </ul>
                 
