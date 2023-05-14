@@ -4,6 +4,8 @@ import { useAppDispatch } from "../../.."
 import { reset, logout } from "../../../slicer/authSlice"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faDoorOpen, faHeart, faList, faReceipt, faUser } from "@fortawesome/free-solid-svg-icons"
+import logo from '../../utils/images/logo.png'
+
 
 const Aside = () =>{
 
@@ -23,7 +25,7 @@ const Aside = () =>{
         {/* add icons later */}
             <nav id="sidebar" className="fixed z-10 h-screen w-full md:w-2/12 -left-[100%] bmd:left-0 bg-slate-800 text-white">
                 <div>
-                    <div className="border-b border-r pb-9 pt-5 px-10"><Link to='/'>Logo</Link></div>
+                    <div className="border-b border-r pb-7 pt-5 px-10"><Link to='/'><img loading='lazy' src={logo} alt="logo"/></Link></div>
                 </div>
                 <div className="flex py-10">
             

@@ -3,7 +3,7 @@ import { faBars, faBell, faMoon } from '@fortawesome/free-solid-svg-icons';
 import MobileAside from './MobileAside';
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
-
+import logo from '../../utils/images/logo.png'
 const AHeader = () =>{
 
     const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +18,8 @@ const AHeader = () =>{
             <nav className="w-full bmd:flex justify-between px-10 py-5 bg-slate-800 text-white">
                 <div className='mb-3 bmd:mb-0'>
                     <div className='flex justify-between bmd:hidden'>
-                        <span><Link to='/'>logo</Link></span>
+                        <span><Link to='/'><img className='w-24 h-16' loading='lazy' src={logo} alt="logo"/></Link></span>
+
                         <span onClick={handleAsideState}><FontAwesomeIcon icon={faBars} size='lg'  /></span>
                     </div>
                 </div>

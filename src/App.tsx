@@ -64,6 +64,7 @@ import UserInvoiceDetails from './components/users/InvoiceDetails';
 import Wishlist from './components/users/Wishlist';
 import NewPassword from './components/ChangePassword';
 import Payment from './components/Payment';
+import Allcategory from './components/AllCategories';
 
 
 
@@ -93,6 +94,8 @@ function App() {
           <Route path='/forgetpassword' element={<ForgetPassword/>} />
           <Route path='/changepassword/:fpcode' element={<NewPassword/>} />
           <Route path='/payment/:transId' element={<Payment/>} />
+          <Route path='/categories' element={<Allcategory/>} />
+
 
 
 

@@ -62,7 +62,8 @@ const Hero: React.FC = ():JSX.Element=>{
                         })
                     
                     }
-                    
+
+                    <li className="ml-5"><Link to='/categories' >See All</Link></li>
                 </ul>
 
                 </div>
@@ -92,12 +93,14 @@ const Hero: React.FC = ():JSX.Element=>{
             <div className="mt-10">
                 <div className="grid grid-cols-4 gap-3 mx-2 text-sm">
                     <div className="text-center">
-                        <div className="bg-lime-500 px-1 py-2 rounded">
-                            <FontAwesomeIcon icon={faList}/>
-                            <div>
-                                Categories
+                        <Link to='/categories' >
+                            <div className="bg-lime-500 px-1 py-2 rounded">
+                                <FontAwesomeIcon icon={faList}/>
+                                <div>
+                                    Categories
+                                </div>
                             </div>
-                        </div>
+                        </Link>
                     </div>
                 {isSuccess &&
                     cAtegories?.map((cats:Cats, i:number)=>{

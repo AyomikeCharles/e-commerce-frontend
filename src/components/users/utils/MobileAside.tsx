@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom"
 import TokenService from "../../../res/tokenService"
 import { useAppDispatch } from "../../.."
 import { reset, logout } from "../../../slicer/authSlice"
+import logo from '../../utils/images/logo.png'
 
 type Props = {
     open:boolean,
@@ -53,12 +54,11 @@ const MobileAside:React.FC<Props> = ({open, changeOpenState}):JSX.Element =>{
                 <nav ref={cartDrawer} id="sidebar" className="fixed -left-[100%] transition duration-500 top-0 pt-5 w-full h-full z-50 bg-white">
 
                     <div className="flex justify-between border-b px-10 py-3">
-                        <div className=""><Link to='/'>Logo</Link></div>
-
+                        <div className=""><Link to='/'><img className='w-10/12' loading='lazy' src={logo} alt="logo"/></Link></div>
                         <div className='flex justify-end'>
 
-                            <button onClick={changeOpenState} className="mx-5">
-                                <FontAwesomeIcon icon={faTimes} size='2xl' className='drop-shadow-sm'/>
+                            <button onClick={changeOpenState} className="mx-5 border px-3 rounded">
+                                <FontAwesomeIcon icon={faTimes} size='xl' className='drop-shadow-sm font-light'/>
                             </button>
 
                         </div>

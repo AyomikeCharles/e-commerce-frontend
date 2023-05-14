@@ -5,6 +5,8 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../..';
 import Cart from '../../utils/Cart';
+import logo from '../../utils/images/logo.png'
+
 
 const Nav = () =>{
 
@@ -36,14 +38,15 @@ const Nav = () =>{
             <nav className="w-full bmd:flex justify-between px-10 py-5 bg-slate-800 text-white">
                 <div className='block bmd:hidden mb-3 bmd:mb-0'>
                     <div className='flex justify-between bmd:hidden'>
-                        <div>
-                            <span className='mr-5' onClick={handleAsideState}><FontAwesomeIcon icon={faBars} size='lg'  /></span>
-                            <span><Link to='/'>logo</Link></span>
+                        <div className='w-full flex'>
+                            <span className='pt-1 border px-3 rounded' onClick={handleAsideState}><FontAwesomeIcon icon={faBars} size='lg'  /></span>
+                            <span><Link to='/'><img className='w-10/12' loading='lazy' src={logo} alt="logo"/></Link></span>
+
                         </div>
                         
                         <ul className="flex justify-center bmd:justify-end">
-                            <li className='relative mx-5'><span className='text-sm hover:text-lime-500 transition duration-500'><FontAwesomeIcon icon={faBell} size='lg' className='text-lime-500' /></span><span className='bg-white absolute -top-2 -right-[2px] w-4 h-4 text-black text-center text-[9px] rounded-[50%]'>0</span></li>
-                            <li onClick={handleCartState} className='relative hover:cursor-pointer'><FontAwesomeIcon icon={faShoppingCart} size='lg' className='text-lime-500'/><span className='bg-white absolute -top-2 -right-[4px] w-4 h-4 text-black text-center text-[9px] rounded-[50%]'>{cartCount?.totalQty}</span></li>
+                            <li className='relative mx-5 pt-1'><span className='text-sm hover:text-lime-500 transition duration-500'><FontAwesomeIcon icon={faBell} size='lg' className='text-lime-500' /></span><span className='bg-white absolute -top-1 -right-[2px] w-4 h-4 text-black text-center text-[9px] rounded-[50%]'>0</span></li>
+                            <li onClick={handleCartState} className='pt-1 relative hover:cursor-pointer'><FontAwesomeIcon icon={faShoppingCart} size='lg' className='text-lime-500'/><span className='bg-white absolute -top-1 -right-[4px] w-4 h-4 text-black text-center text-[9px] rounded-[50%]'>{cartCount?.totalQty}</span></li>
                         </ul>
                     </div>
                 </div>
