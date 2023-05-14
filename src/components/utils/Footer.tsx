@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import logo from './images/logo.png'
+
 const Footer = ():JSX.Element=>{
     return(
         <>  
@@ -46,34 +48,19 @@ const Footer = ():JSX.Element=>{
             </div>
             <div className="mx-6 py-10 text-center md:text-left">
                 <div className="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-                <div className="">
-                    <h6
-                    className="mb-4 flex items-center justify-center font-semibold uppercase md:justify-start">
-                    
-                        Logo
-                    </h6>
-                    <p>
-                    Here you can use rows and columns to organize your footer
-                    content. Lorem ipsum dolor sit amet, consectetur adipisicing
-                    elit.
-                    </p>
+             
+                <div className='flex justify-center'>
+                    <Link to='/'>
+                        <img className='md:w-11/12' loading='lazy' src={logo} alt="logo"/>
+                    </Link>
                 </div>
+                    
+             
                 <div className="">
-                    <h6
-                    className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
-                    Products
-                    </h6>
-                    <p className="mb-4">
-                    <Link to="#!" className="text-lime-500 dark:text-neutral-200">Angular</Link>
-                    </p>
-                    <p className="mb-4">
-                    <Link to="#!" className="text-lime-500 dark:text-neutral-200">React</Link>
-                    </p>
-                    <p className="mb-4">
-                    <Link to="#!" className="text-lime-500 dark:text-neutral-200">Vue</Link>
-                    </p>
                     <p>
-                    <Link to="#!" className="text-lime-500 dark:text-neutral-200">Laravel</Link>
+                        Here you can use rows and columns to organize your footer
+                        content. Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit.
                     </p>
                 </div>
                 <div className="">
@@ -82,16 +69,16 @@ const Footer = ():JSX.Element=>{
                     Useful links
                     </h6>
                     <p className="mb-4">
-                    <Link to="#!" className="text-lime-500 dark:text-neutral-200">Pricing</Link>
+                    <Link to="#!" className="text-lime-500">All Products</Link>
                     </p>
                     <p className="mb-4">
-                    <Link to="#!" className="text-lime-500 dark:text-neutral-200">Settings</Link>
+                    <Link to="#!" className="text-lime-500">All Categories</Link>
                     </p>
                     <p className="mb-4">
-                    <Link to="#!" className="text-lime-500 dark:text-neutral-200">Orders</Link>
+                    <Link to="#!" className="text-lime-500">Sign in</Link>
                     </p>
                     <p>
-                    <Link to="#!" className="text-lime-500 dark:text-neutral-200">Help</Link>
+                    <Link to="#!" className="text-lime-500">Sign up</Link>
                     </p>
                 </div>
                 <div>

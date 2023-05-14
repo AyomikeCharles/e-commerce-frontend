@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserAlt, faHeadset, faShoppingCart,faAngleDown, faSearch, faArrowLeft, faPhone } from '@fortawesome/free-solid-svg-icons'
+import { faUserAlt, faHeadset, faShoppingCart,faAngleDown, faSearch, faArrowLeft, faPhone, faMessage } from '@fortawesome/free-solid-svg-icons'
 import { Link, useNavigate } from 'react-router-dom';
 import Cart from './Cart'
 import logo from './images/logo.png'
@@ -80,11 +80,9 @@ const Navbar = ():JSX.Element=>{
                             <span className='text-sm hover:text-lime-500 transition duration-500 hidden md:inline'> Support &nbsp;<FontAwesomeIcon icon={faAngleDown} /></span>
                             {showSupourt &&
                                 <div className='absolute z-50 top-15 w-[140px] -left-10 md:left-0 p-3 rounded shadow bg-white text-black'>
-                                    <FontAwesomeIcon icon={faPhone}/> 0814023456
-                                    <hr/>
-                                    <FontAwesomeIcon icon={faPhone}/> 0814023456
-                                    <hr/>
-                                    <FontAwesomeIcon icon={faPhone}/> 0814023456
+                                    <FontAwesomeIcon icon={faPhone} className='text-lime-500'/> phone
+                                    <hr className='my-1'/>
+                                    <FontAwesomeIcon icon={faMessage} className='text-lime-500'/> whatsapp
                                 </div>
                             }
                         </li>
@@ -117,11 +115,9 @@ const Navbar = ():JSX.Element=>{
                             <span className='text-sm hover:text-lime-500 transition duration-500 hidden md:inline'> Support &nbsp;<FontAwesomeIcon icon={faAngleDown} /></span>
                             {showSupourt1 &&
                                 <div className='absolute z-[80000000] w-[140px] top-15 -left-10 md:left-0 p-3 rounded shadow bg-white text-black'>
-                                    <FontAwesomeIcon icon={faPhone}/> 0814023456
-                                    <hr/>
-                                    <FontAwesomeIcon icon={faPhone}/> 0814023456
-                                    <hr/>
-                                    <FontAwesomeIcon icon={faPhone}/> 0814023456
+                                    <FontAwesomeIcon icon={faPhone} className='text-lime-500'/> phone
+                                    <hr className='my-1'/>
+                                    <FontAwesomeIcon icon={faMessage} className='text-lime-500'/> Whatsapp
                                 </div>
                             }
                             

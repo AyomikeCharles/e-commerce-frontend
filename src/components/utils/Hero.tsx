@@ -46,14 +46,14 @@ const Hero: React.FC = ():JSX.Element=>{
             <div className='flex'>
                 <div className='basis-3/12 xl:basis-1/3'>
 
-                <ul className="bg-lime-500 rounded py-5">
+                <ul className="bg-lime-500 rounded py-3">
                     <li><h4 className="ml-5 font-semibold text-xl">Categories</h4></li>
                     
                     { isSuccess &&
                     
                     cAtegories?.map((cats:Cats,i:number)=> 
                         {
-                            if(i <= 10 ){
+                            if(i <= 7 ){
                                 return (
                                 <li key={i} className="my-2 hover:font-bold flex"><Link to={`/category/${cats._id}`}><div className="basis-3/4 flex ml-4"><img className='mr-1 w-6 h-7' loading='lazy' src={cats.icon} alt={`${cats.title} category icon`} /> {cats.title}</div></Link></li>
                                 )
@@ -75,10 +75,10 @@ const Hero: React.FC = ():JSX.Element=>{
                 <div className='basis-1/3 hidden xl:inline'>
                     <div className='rounded'>
                         <div className=''>
-                            <img className="rounded-t h-1/2" src={freedv} alt=''/>
+                            <img className="rounded-t w-11/12" src={freedv} alt=''/>
                         </div>
                         <div>
-                            <img className="rounded-b mb-2" src={gadgetImg} alt=''/>
+                            <img className="rounded-b w-11/12" src={gadgetImg} alt=''/>
                         </div>            
                     </div>
                 </div>
