@@ -28,7 +28,7 @@ const Home = ():JSX.Element=>{
             <Navbar/>
             <Hero/>
             <Products/>
-            <div className="m-10">
+            <div className="m-5">
                 <Link className="bg-lime-500 p-2 rounded" to='/products'>View All</Link>
             </div>
             <Footer/>

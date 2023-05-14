@@ -55,7 +55,7 @@ const Hero: React.FC = ():JSX.Element=>{
                         {
                             if(i <= 10 ){
                                 return (
-                                <li key={i} className="my-2 hover:font-bold flex"><Link to={`/category/${cats._id}`}><div className="basis-3/4 flex ml-4"><img width={20} className='mr-2' height={20} loading='lazy' src={cats.icon} alt={`${cats.title} category icon`} /> {cats.title}</div></Link></li>
+                                <li key={i} className="my-2 hover:font-bold flex"><Link to={`/category/${cats._id}`}><div className="basis-3/4 flex ml-4"><img className='mr-1 w-6 h-7' loading='lazy' src={cats.icon} alt={`${cats.title} category icon`} /> {cats.title}</div></Link></li>
                                 )
                             }
                             return null
@@ -74,7 +74,7 @@ const Hero: React.FC = ():JSX.Element=>{
                 </div>
                 <div className='basis-1/3 hidden xl:inline'>
                     <div className='rounded'>
-                        <div className='mb-3'>
+                        <div className=''>
                             <img className="rounded-t h-1/2" src={freedv} alt=''/>
                         </div>
                         <div>
@@ -97,7 +97,7 @@ const Hero: React.FC = ():JSX.Element=>{
                             <div className="bg-lime-500 px-1 py-2 rounded">
                                 <FontAwesomeIcon icon={faList}/>
                                 <div>
-                                    Categories
+                                    See all
                                 </div>
                             </div>
                         </Link>
@@ -110,7 +110,7 @@ const Hero: React.FC = ():JSX.Element=>{
                                 <div className="text-center">
                                     
                                     <div className="bg-lime-500 px-1 py-2 rounded">
-                                        <img width={20} className='mx-auto' height={20} loading='lazy' src={cats.icon} alt={`${cats.title} category icon`} /> 
+                                        <img className='mx-auto w-7 h-8' loading='lazy' src={cats.icon} alt={`${cats.title} category icon`} /> 
                                         <div className='truncate ...'>
                                             {cats.title}
                                         </div>

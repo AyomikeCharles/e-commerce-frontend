@@ -44,8 +44,6 @@ const Category = ():JSX.Element=>{
         setSkip((val-1)*50)
     }
     
-    console.log(data)
-    
     return(
         <>
             <Navbar/>

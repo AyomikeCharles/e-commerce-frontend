@@ -25,13 +25,6 @@ const Navbar = ():JSX.Element=>{
         setSearch(value)
     }
 
-    const handleShowSupourt = () => {
-        setShowSupourt(!showSupourt)
-    }
-
-    const handleShowSupourt1 = () => {
-        setShowSupourt1(!showSupourt1)
-    }
 
     const handleCartState = () => {
         setIsOpen(!isOpen)
@@ -45,7 +38,7 @@ const Navbar = ():JSX.Element=>{
 
     const handleScroll = () => {
         if(navRef.current !== null){
-            if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
                 navRef.current.style.top = "0";
             } else {
                 navRef.current.style.top = "-200px";
@@ -82,7 +75,7 @@ const Navbar = ():JSX.Element=>{
                 <div className='basis-4/12 pt-2 md:pt-4'>
                     <ul className='flex justify-between md:justify-around space-x-3 md:space-x-4 text-white'>
                         <li onClick={showSearch}><FontAwesomeIcon icon={faSearch} size='xl' className='text-lime-500 md:hidden'/></li>
-                        <li className='relative' onMouseEnter={handleShowSupourt} onMouseLeave={handleShowSupourt}>
+                        <li className='relative' onMouseEnter={()=>setShowSupourt(true)} onMouseLeave={()=>setShowSupourt(false)}>
                             <FontAwesomeIcon icon={faHeadset} size='xl' className='text-lime-500'/> 
                             <span className='text-sm hover:text-lime-500 transition duration-500 hidden md:inline'> Support &nbsp;<FontAwesomeIcon icon={faAngleDown} /></span>
                             {showSupourt &&
@@ -118,7 +111,7 @@ const Navbar = ():JSX.Element=>{
                 <div className='basis-4/12 pt-2  md:pt-4'>
                     <ul className='flex justify-between md:justify-around space-x-3 md:space-x-4 text-white'>
                         <li onClick={showSearch}><FontAwesomeIcon icon={faSearch} size='xl' className='text-lime-500 md:hidden'/></li>
-                        <li className='relative ' onMouseEnter={handleShowSupourt1} onMouseLeave={handleShowSupourt1}>
+                        <li className='relative ' onMouseEnter={()=>setShowSupourt1(true)} onMouseLeave={()=>setShowSupourt1(false)}>
                            
                             <FontAwesomeIcon icon={faHeadset} size='xl' className='text-lime-500'/>
                             <span className='text-sm hover:text-lime-500 transition duration-500 hidden md:inline'> Support &nbsp;<FontAwesomeIcon icon={faAngleDown} /></span>
