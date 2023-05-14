@@ -92,19 +92,21 @@ const UserOrderDetails = () =>{
                                 {isSuccess &&
                                 <div>
                                     <div className="">
+                                        <div className="md:flex md:space-x-3">
                                         {
                                         info?.transactionStatus === 'processing' && info?.paymentStatus === 'unpaid' &&
-                                        <div className="flex justify-end">
+                                        <div className="">
                                             <button className="bg-lime-500 rounded p-2" onClick={showPortal}>cancel transaction</button> 
                                         </div>
                                         }
 
                                         {
                                             info?.paymentStatus === 'unpaid' &&
-                                            <div className="flex justify-end">
+                                            <div className="my-3 md:my-0 md:p-2">
                                                 <Link to={`/payment/${id}`} className="bg-lime-500 rounded p-2">Make Payment</Link> 
                                             </div>
                                         }
+                                        </div>
                                         
 
                                         <div className="flex justify-between bg-slate-100 rounded p-5 my-3">
@@ -149,9 +151,9 @@ const UserOrderDetails = () =>{
                                                         <div key={product.id} className="md:flex justify-around p-2 rounded my-2">
                                                             <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/2">Product: </div> <div className="basis-1/2">{product.title}</div></div>
                                                             <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/2">Quantity: </div> <div className="basis-1/2">{product.qty}</div></div>
-                                                            <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/2">Price: </div> <div className="basis-1/2">{product.price}</div></div>
+                                                            <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/2">Price: </div> <div className="basis-1/2">₦ {product.price}</div></div>
                                                             <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/2">discount: </div> <div className="basis-1/2">{product.discountPercentage}</div></div>
-                                                            <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/2">Total: </div> <div className="basis-1/2">{productTotal}</div></div>
+                                                            <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/2">Total: </div> <div className="basis-1/2">₦ {productTotal}</div></div>
                                                         </div>
                                                     )
                                                 })
@@ -162,9 +164,9 @@ const UserOrderDetails = () =>{
                                         </div>
                                         <div className="bg-slate-100 rounded p-5 my-3">
                                             <div>
-                                                <h5>Subtotal {info.subtotal}</h5>
-                                                <h5>Shipping {info.shippingPrice}</h5>
-                                                <h5 className="font-bold">Total { parseInt(info.subtotal) + parseInt(info.shippingPrice)}</h5>
+                                                <h5>Subtotal: ₦ {info.subtotal}</h5>
+                                                <h5>Shipping: ₦ {info.shippingPrice}</h5>
+                                                <h5 className="font-bold">Total: ₦ { parseInt(info.subtotal) + parseInt(info.shippingPrice)}</h5>
                                             </div>
                                         </div>
                                     </div>

@@ -44,8 +44,8 @@ const UserProfile = () => {
                                         </div>
                                         <div className="basis-1/4 flex justify-end my-3">
                                             <div>
-                                                <Link className="block rounded transition duration-500 hover:bg-lime-500/50 p-1 mb-2" to='/user/editprofille'>Edit Profile</Link>
-                                                <Link className="block rounded transition duration-500 hover:bg-lime-500/50 p-1" to='/user/changepassword'>Change Password</Link>
+                                                <Link className="block rounded transition duration-500 text-lime-500 p-1 mb-2" to='/user/editprofille'>Edit Profile</Link>
+                                                <Link className="block rounded transition duration-500 text-lime-500 p-1" to='/user/changepassword'>Change Password</Link>
                                             </div>
                                         </div>
                                     </div>

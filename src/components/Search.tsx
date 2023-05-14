@@ -60,7 +60,7 @@ const Search = ():JSX.Element=>{
                                         <img className="w-full h-40 md:h-48 hover:scale-105 transition duration-500" src={product.images[0]} alt="Product"/>
                                         <div className="p-2">
                                             <div className="text-lg truncate ...">{product.title}</div>
-                                            <div className="font-bold text-md">${product.price}</div>
+                                            <div className="font-bold text-md">₦{product.price}</div>
                                         </div>
                                     </div>
                                 </Link>

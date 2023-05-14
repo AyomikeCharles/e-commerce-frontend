@@ -1,4 +1,4 @@
-import { faDashboard, faDoorOpen, faHeart, faList, faReceipt, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faDoorOpen, faHeart, faList, faReceipt, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useRef } from 'react';
 import { Link, useNavigate } from "react-router-dom"
@@ -68,8 +68,8 @@ const MobileAside:React.FC<Props> = ({open, changeOpenState}):JSX.Element =>{
             
                     <ul>
                     <li onClick={changeOpenState} className={`my-1 rounded  px-8 py-3`}>
-                            <FontAwesomeIcon icon={faDashboard} size='lg' className='drop-shadow-sm mr-3 text-lime-500'/>
-                            <Link to='/user'>Dashboard</Link>
+                            <FontAwesomeIcon icon={faUser} size='lg' className='drop-shadow-sm mr-3 text-lime-500'/>
+                            <Link to='/user'>Profile</Link>
                         </li>
     
                         

@@ -56,7 +56,7 @@ const info = data as DataObject
                                 <img className="w-full h-40 hover:scale-105 md:h-48 transition duration-500" src={product.images[0]} alt="Sunset in the mountains"/>
                                 <div className="p-2 drop-shadow-lg">
                                     <div className="text-lg truncate ...">{product.title}</div>
-                                    <div className="font-bold text-md">${product.price}</div>
+                                    <div className="font-bold text-md">₦{product.price}</div>
                                 </div>
                             </div>
                         </Link>

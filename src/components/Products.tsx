@@ -200,7 +200,7 @@ const Product = ():JSX.Element =>{
 
                     <div className="basis-1/2 md:ml-3 lg:px-5">
                         <div className="text-2xl font-semibold my-3">{info?.title}</div>
-                        <div className="text-xl font-semibold text-lime-500 my-1">${info?.price}</div>
+                        <div className="text-xl font-semibold text-lime-500 my-1">₦{info?.price}</div>
                         <div className="text-lg font-medium my-1">Brand : {info?.brand}</div>
                         {info?.stock > 0?<div className="text-lg font-medium my-1">stock: {info?.stock}</div>:<div className="text-xl font-semibold my-3 line-through">stock: {info?.stock}</div>}
                         {info?.discountPercentage > 0?<div className="text-lg font-medium my-1">discount: {info?.discountPercentage} %</div>: null }

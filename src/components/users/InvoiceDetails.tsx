@@ -97,8 +97,8 @@ const UserInvoiceDetails = () =>{
                                                 <div key={product.id} className="md:flex justify-around p-2 rounded my-2">
                                                     <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/2">Product: </div> <div className="basis-1/2">{product.title}</div></div>
                                                     <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/2">Quantity: </div> <div className="basis-1/2">{product.qty}</div></div>
-                                                    <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/2">Price: </div> <div className="basis-1/2">{productPrice}</div></div>
-                                                    <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/2">Total: </div> <div className="basis-1/2">{productTotal}</div></div>
+                                                    <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/2">Price: </div> <div className="basis-1/2">₦ {productPrice}</div></div>
+                                                    <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/2">Total: </div> <div className="basis-1/2">₦ {productTotal}</div></div>
                                                 </div>
                                             )
 
@@ -112,9 +112,9 @@ const UserInvoiceDetails = () =>{
 
                                         <div className="flex justify-end">
                                             <div>
-                                                <h5>Subtotal {info.subtotal}</h5>
-                                                <h5>Shipping {info.shippingPrice}</h5>
-                                                <h5 className="font-bold">Total { parseInt(info.subtotal) + parseInt(info.shippingPrice)}</h5>
+                                                <h5>Subtotal: ₦ {info.subtotal}</h5>
+                                                <h5>Shipping: ₦ {info.shippingPrice}</h5>
+                                                <h5 className="font-bold">Total: ₦ { parseInt(info.subtotal) + parseInt(info.shippingPrice)}</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -178,8 +178,8 @@ const UserInvoiceDetails = () =>{
                                                 <div key={product.id} className="md:flex justify-around p-2 rounded my-2">
                                                     <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/2">Product: </div> <div className="basis-1/2">{product.title}</div></div>
                                                     <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/2">Quantity: </div> <div className="basis-1/2">{product.qty}</div></div>
-                                                    <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/2">Price: </div> <div className="basis-1/2">{productPrice}</div></div>
-                                                    <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/2">Total: </div> <div className="basis-1/2">{productTotal}</div></div>
+                                                    <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/2">Price: </div> <div className="basis-1/2">₦ {productPrice}</div></div>
+                                                    <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/2">Total: </div> <div className="basis-1/2">₦ {productTotal}</div></div>
                                                 </div>
                                                 )
 
@@ -192,9 +192,9 @@ const UserInvoiceDetails = () =>{
 
                                         <div className="flex justify-end">
                                             <div>
-                                                <h5>Subtotal {info.subtotal}</h5>
-                                                <h5>Shipping {info.shippingPrice}</h5>
-                                                <h5 className="font-bold">Total { parseInt(info.subtotal) + parseInt(info.shippingPrice)}</h5>
+                                                <h5>Subtotal: ₦ {info.subtotal}</h5>
+                                                <h5>Shipping: ₦ {info.shippingPrice}</h5>
+                                                <h5 className="font-bold">Total: ₦ { parseInt(info.subtotal) + parseInt(info.shippingPrice)}</h5>
                                             </div>
                                         </div>
                                         

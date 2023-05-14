@@ -120,7 +120,7 @@ const Payment = () => {
                     
                     <div>
                         <p>
-                          total:  {(parseInt(product?.shippingPrice) + parseInt(product?.subtotal))}
+                          total: ₦ {(parseInt(product?.shippingPrice) + parseInt(product?.subtotal))}
                         </p>
                         <div className="mt-5 bg-lime-500 p-3 rounded inline-flex">
                             <PaystackButton {...componentProps} />

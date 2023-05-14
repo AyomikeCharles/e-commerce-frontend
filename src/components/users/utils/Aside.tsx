@@ -3,7 +3,7 @@ import TokenService from "../../../res/tokenService"
 import { useAppDispatch } from "../../.."
 import { reset, logout } from "../../../slicer/authSlice"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faDashboard, faDoorOpen, faHeart, faList, faReceipt } from "@fortawesome/free-solid-svg-icons"
+import { faDoorOpen, faHeart, faList, faReceipt, faUser } from "@fortawesome/free-solid-svg-icons"
 
 const Aside = () =>{
 
@@ -28,23 +28,23 @@ const Aside = () =>{
                 <div className="flex py-10">
             
                     <ul className="w-full">
-                        <li className={`my-1 px-2 xl:px-5 ${location.pathname === '/user'?'bg-lime-300/50':null} py-3`}>
-                            <FontAwesomeIcon icon={faDashboard} size='lg' className='drop-shadow-sm mr-3 text-lime-500'/>
-                            <Link to='/user'>Dashboard</Link>
+                        <li className={`my-1 px-5 ${location.pathname === '/user'?'bg-lime-50/50':null} py-3`}>
+                            <FontAwesomeIcon icon={faUser} size='lg' className='drop-shadow-sm mr-3 text-lime-500'/>
+                            <Link to='/user'>Profile</Link>
                         </li>
     
                         
-                        <li className={`my-1  px-5 ${location.pathname === '/user/orders'?'bg-lime-300/50':null} py-3`}>
+                        <li className={`my-1  px-5 ${location.pathname === '/user/orders'?'bg-lime-50/50':null} py-3`}>
                             <FontAwesomeIcon icon={faList} size='lg' className='drop-shadow-sm mr-3 text-lime-500'/>
                             <Link to='/user/orders'>Orders</Link>
                         </li>
 
-                        <li className={`my-1  px-5 ${location.pathname === '/user/invoice'?'bg-lime-300/50':null} py-3`}>
+                        <li className={`my-1  px-5 ${location.pathname === '/user/invoice'?'bg-lime-50/50':null} py-3`}>
                             <FontAwesomeIcon icon={faReceipt} size='lg' className='drop-shadow-sm mr-3 text-lime-500'/>
                             <Link to='/user/invoice'>Invoice</Link>
                         </li>
 
-                        <li className={`my-1 px-5 ${location.pathname === '/user/wishlist'?'bg-lime-300/50':null} py-3`}>
+                        <li className={`my-1 px-5 ${location.pathname === '/user/wishlist'?'bg-lime-50/50':null} py-3`}>
                             <FontAwesomeIcon icon={faHeart} size='lg' className='drop-shadow-sm mr-3 text-lime-500'/>
                             <Link to='/user/wishlist'>Wishlist</Link>
                         </li>
