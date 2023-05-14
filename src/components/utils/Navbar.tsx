@@ -96,7 +96,7 @@ const Navbar = ():JSX.Element=>{
 
             
 
-            <nav className='flex justify-between relative z-50 px-3 md:px-7 py-3 fill-transparent drop-shadow-lg  bg-slate-800 font-light'>
+            <nav className='flex justify-between relative z-20 px-3 md:px-7 py-3 fill-transparent drop-shadow-lg  bg-slate-800 font-light'>
                 <div className='basis-6/12 md:basis-3/12'>
                     <div className='flex justify-center'><Link to='/'><img className='md:w-9/12' loading='lazy' src={logo} alt="logo"/></Link></div>
                 </div>
