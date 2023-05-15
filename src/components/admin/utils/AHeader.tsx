@@ -30,7 +30,7 @@ const AHeader = () =>{
 
     return(
         <>
-            <nav className="w-full bmd:flex justify-between px-10 py-5 bg-slate-800 text-white">
+            <nav className="w-full bmd:flex justify-between p-5 bg-slate-800 text-white">
                 <div className='block bmd:hidden mb-3 bmd:mb-0'>
                     <div className='flex justify-between bmd:hidden'>
                         <div className='w-full flex'>

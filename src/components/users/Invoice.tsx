@@ -47,9 +47,9 @@ const UserInvoice = () =>{
                     <section id="content">
                             <div className="px-5 py-10">
                                 <div className="mb-12 flex justify-between">
-                                    <h3 className="text-2xl font-bold">Invioce</h3>
+                                    <h3 className="text-2xl font-bold">Invoice</h3>
                                 </div>
-                                {isSuccess &&
+                                {isSuccess && data?.data?.length === 0 ? <div className="text-center my-10">You have no invoice </div>: isSuccess &&
                                 <div className="md:px-10">
                                     <div>
 
@@ -78,7 +78,7 @@ const UserInvoice = () =>{
 
                                     
                                         {
-                                            data.data?.map((info:Info)=>(
+                                            data?.data?.map((info:Info)=>(
 
                                                 <div key={info._id} className="bg-slate-100 md:flex justify-around p-2 rounded my-2">
                                                     <div className="basis-1/5 flex md:block"><div className="md:hidden basis-1/2">transaction id: </div> <div className="basis-1/2">#{info._id.slice(-6)}</div></div>

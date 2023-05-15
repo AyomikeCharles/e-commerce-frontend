@@ -88,6 +88,7 @@ const Users = () =>{
                                 </form>
                                     <div className="bg-slate-100 hidden md:flex justify-between p-2 rounded my-2">
                                         <div className="basis-1/4">user</div>
+                                        <div className="basis-1/4">id</div>
                                         <div className="basis-1/4">email</div>
                                         <div className="basis-1/4">Registed</div>
                                         <div className="basis-1/4">action</div>
@@ -96,17 +97,10 @@ const Users = () =>{
                                         allUsers.data.map((user:User)=>(
 
                                             <div key={user._id} className="bg-slate-100 md:flex justify-around p-2 rounded my-2">
-                                                <div className="basis-1/4 flex md:block">
-                                                    <div className="md:hidden basis-1/4">user: </div> 
-                                                    <div className="basis-3/4 flex">
-                                                        <div className="mx-2">
-                                                            <h6>{user.fullName}</h6>
-                                                            <span className="text-sm">id: #{user._id.slice(-3)}</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/4">email: </div> <div className="basis-3/4">{user.email}</div></div>
+                
+                                                <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/4">user: </div> <div className="basis-3/4">{user.fullName}</div></div>
+                                                <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/4">id: </div> <div className="basis-3/4">{user._id.slice(-3)}</div></div>
+                                                <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/4">email: </div> <div className="basis-3/4 truncate ...">{user.email}</div></div>
                                                 <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/4">Registed: </div> <div className="basis-3/4">{user.createdAt.slice(0,10)}</div></div>
                                                 <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/4">action: </div> <div className="basis-3/4"><Link className="text-lime-500" to={`userdetails/${user._id}`}>view</Link></div></div>
                                             </div>

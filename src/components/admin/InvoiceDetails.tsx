@@ -6,6 +6,7 @@ import { Info } from './Orders'
 import { AxiosError } from "axios";
 import Loading from "../utils/Loading";
 import { Message } from "../../slicer/authSlice";
+import logo from '../utils/images/logo.png'
 
 
 
@@ -43,19 +44,21 @@ const InvoiceDetails = () =>{
                                 {isSuccess &&
 
                                 <div>
-                                    <div ref={printDiv} className="bg-slate-100  rounded p-5">
+                                    <div ref={printDiv} className="bg-slate-100 justify-between  rounded p-5">
                                         <div className="flex justify-between">
-                                            <div className="">
+                                            <div className="basis-6/12 md:basis-8/12">
                                                 <h5>
                                                     # {info._id.slice(-6)}
                                                 </h5>
-                                                <h4 className="my-5 text-2xl font-bold">
+                                                <h4 className="text-2xl font-bold">
                                                     Invoice
                                                 </h4>
                                             </div>
-                                            <div>
-                                                <h5>{info.updatedAt.slice(0, 10)}</h5>
-                                                <h3 className="my-5 text-2xl font-bold">logo</h3>
+                                            <div className="basis-6/12 md:basis-4/12">
+                                                <h5 className="text-center">{info.updatedAt.slice(0, 10)}</h5>
+                                                <h3 className="">
+                                                    <img className='w-10/12 md:w-8/12' loading='lazy' src={logo} alt="logo"/>
+                                                </h3>
                                             </div>
                                         </div>
                                         <hr/>

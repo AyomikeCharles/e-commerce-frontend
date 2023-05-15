@@ -67,13 +67,15 @@ const Wishlist = () =>{
                                 <h3 className="text-2xl font-bold">Wishlist</h3>
                             </div>
 
-
-                            <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4  md:px-10">
-                                {isError?
+                            {isError?
                                 
                                 <div>{errMessage? errMessage.message : 'Network Error'}</div>
-    
-                                : isSuccess && data?.product.map((product:Data)=>(
+                                :
+                                isSuccess && data?.product.length === 0 ? <div className="text-center my-10">there are no product in your wishlist</div>:
+                                
+                                <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4  md:px-10">
+                                
+                                { isSuccess && data?.product.map((product:Data)=>(
                                     
                                     <div key={product._id} className="max-w-sm shadow-lg rounded">
                                         <Link to={`/product/${product._id}`}>
@@ -91,7 +93,9 @@ const Wishlist = () =>{
                                     </div>
                                 ))
                                 }
-                            </div>
+                                </div>
+
+                            }
 
                             
                      
