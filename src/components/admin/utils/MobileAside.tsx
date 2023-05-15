@@ -1,7 +1,7 @@
 import { faBagShopping, faDashboard, faDoorOpen, faList12, faListAlt, faLocation, faReceipt, faTimes, faUser, faUserCheck, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useRef } from 'react';
-import { Link, useLocation, useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import TokenService from "../../../res/tokenService"
 import { useAppDispatch } from "../../.."
 import { reset, logout } from "../../../slicer/authSlice"
@@ -15,7 +15,6 @@ type Props = {
 
 const MobileAside:React.FC<Props> = ({open, changeOpenState}):JSX.Element =>{
 
-    const location = useLocation()
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
 
