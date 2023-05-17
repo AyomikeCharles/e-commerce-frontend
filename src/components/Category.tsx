@@ -47,8 +47,8 @@ const Category = ():JSX.Element=>{
     return(
         <>
             <Navbar/>
-            <section className="py-16 px-5">
-                <div className="m-3 text-lg font-bold">Products</div>
+            <section className="py-20 px-5">
+                <div className="mb-7 text-xl md:text-2xl font-bold">Products</div>
                 {isSuccess && info?.data.length === 0 ? <div className="text-center my-10">there are no product in this category</div> :
                 <>
                 <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-7">
@@ -57,7 +57,7 @@ const Category = ():JSX.Element=>{
                     isSuccess && info?.data.map((product:Data)=>(
                             <Link key={product._id} to={`/product/${product._id}`}>
                             
-                                <div  className="max-w-sm shadow-lg rounded overflow-hidden">
+                                <div  className="max-w-sm shadow-lg bg-white rounded overflow-hidden">
                                     <img className="w-full h-40 hover:scale-105 md:h-48 transition duration-500" src={product.images[0]} alt="Sunset in the mountains"/>
                                     <div className="p-2 drop-shadow-lg">
                                         <div className="text-lg truncate ...">{product.title}</div>

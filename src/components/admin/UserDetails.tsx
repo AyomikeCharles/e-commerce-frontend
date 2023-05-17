@@ -140,22 +140,21 @@ const UserDetails = () => {
                                     <div className="md:flex">
                                       
                                         <div className="basis-2/4 md:p-5 content-center">
-                                            <h3 className="font-bold text-2xl md:mb-3">{user.fullName}</h3>
                                             <h5>#{user._id.slice(-3)}</h5>
                                         </div>
-                                        <div className="basis-1/4 flex justify-end my-3">
+                                        <div className="basis-1/4 flex text-white justify-end my-3">
                                             <div>
-                                                <button className="hover:bg-lime-700 h-9 mx-2 bg-lime-500 p-2 rounded" onClick={openAdminPortal}>{user.role === roles.users? 'Make Admin' : 'Make Basic'}</button>
+                                                <button className=" h-9 mx-2 bg-lime-500 p-2 rounded" onClick={openAdminPortal}>{user.role === roles.users? 'Make Admin' : 'Make Basic'}</button>
                                                 
                                             </div>
                                             <div>
-                                                <button className="hover:bg-lime-700 h-9 mx-2 bg-lime-500 p-2 rounded" onClick={openBlockPortal}>{user?.status === 'unblock'?'block':'unblock'}</button>
+                                                <button className=" h-9 mx-2 bg-lime-500 p-2 rounded" onClick={openBlockPortal}>{user?.status === 'unblock'?'block':'unblock'}</button>
                                                 
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div className="bg-slate-100 rounded p-3 my-3">
+                                    <div className="bg-white rounded p-3 my-3">
                                         <h3 className="font-bold text-1xl mb-3">Pesonal Details</h3>
                                         <div>
                                             {user.email}
@@ -165,7 +164,7 @@ const UserDetails = () => {
                                         </div>
                                     </div>
 
-                                    <div className="bg-slate-100 rounded p-3 my-3">
+                                    <div className="bg-white rounded p-3 my-3">
                                         <h3 className="font-bold text-1xl mb-3">Shipping Details</h3>
                                         <div>
                                            {
@@ -191,7 +190,7 @@ const UserDetails = () => {
                                             />
                                         <button className="bg-slate-50 rounded-r px-1 dark:bg-slate-400">Search</button>
                                     </div>
-                                    <div className="bg-slate-100 hidden md:flex justify-between p-2 rounded my-2">
+                                    <div className="bg-white hidden md:flex justify-between p-2 rounded my-2">
                                         <div className="basis-1/5">transaction id</div>
                                         <div className="basis-1/5">username</div>
                                         <div className="basis-1/5">status</div>
@@ -199,7 +198,7 @@ const UserDetails = () => {
                                         <div className="basis-1/5">action</div>
                                     </div>
 
-                                    <div className="bg-slate-100 md:flex justify-around p-2 rounded my-2">
+                                    <div className="bg-white md:flex justify-around p-2 rounded my-2">
                                         <div className="basis-1/5 flex md:block"><div className="md:hidden basis-1/2">transaction id: </div> <div className="basis-1/2"># 0f9j483</div></div>
                                         <div className="basis-1/5 flex md:block"><div className="md:hidden basis-1/2">username: </div> <div className="basis-1/2">John Smith</div></div>
                                         <div className="basis-1/5 flex md:block"><div className="md:hidden basis-1/2">status: </div> <div className="basis-1/2">paid</div></div>
@@ -207,7 +206,7 @@ const UserDetails = () => {
                                         <div className="basis-1/5 flex md:block"><div className="md:hidden basis-1/2">action: </div> <div className="basis-1/2"><Link to="/admin/order/orderdetails">view</Link></div></div>
                                     </div>
 
-                                    <div className="bg-slate-100 md:flex justify-around p-2 rounded my-2">
+                                    <div className="bg-white md:flex justify-around p-2 rounded my-2">
                                         <div className="basis-1/5 flex md:block"><div className="md:hidden basis-1/2">transaction id: </div> <div className="basis-1/2"># 0f9j483</div></div>
                                         <div className="basis-1/5 flex md:block"><div className="md:hidden basis-1/2">username: </div> <div className="basis-1/2">John Smith</div></div>
                                         <div className="basis-1/5 flex md:block"><div className="md:hidden basis-1/2">status: </div> <div className="basis-1/2">paid</div></div>
@@ -215,7 +214,7 @@ const UserDetails = () => {
                                         <div className="basis-1/5 flex md:block"><div className="md:hidden basis-1/2">action: </div> <div className="basis-1/2"><Link to="/admin/order/orderdetails">view</Link></div></div>
                                     </div>
 
-                                    <div className="bg-slate-100 md:flex justify-around p-2 rounded my-2">
+                                    <div className="bg-white md:flex justify-around p-2 rounded my-2">
                                         <div className="basis-1/5 flex md:block"><div className="md:hidden basis-1/2">transaction id: </div> <div className="basis-1/2"># 0f9j483</div></div>
                                         <div className="basis-1/5 flex md:block"><div className="md:hidden basis-1/2">username: </div> <div className="basis-1/2">John Smith</div></div>
                                         <div className="basis-1/5 flex md:block"><div className="md:hidden basis-1/2">status: </div> <div className="basis-1/2">paid</div></div>
@@ -223,7 +222,7 @@ const UserDetails = () => {
                                         <div className="basis-1/5 flex md:block"><div className="md:hidden basis-1/2">action: </div> <div className="basis-1/2"><Link to="/admin/order/orderdetails">view</Link></div></div>
                                     </div>
 
-                                    <div className="bg-slate-100 md:flex justify-around p-2 rounded my-2">
+                                    <div className="bg-white md:flex justify-around p-2 rounded my-2">
                                         <div className="basis-1/5 flex md:block"><div className="md:hidden basis-1/2">transaction id: </div> <div className="basis-1/2"># 0f9j483</div></div>
                                         <div className="basis-1/5 flex md:block"><div className="md:hidden basis-1/2">username: </div> <div className="basis-1/2">John Smith</div></div>
                                         <div className="basis-1/5 flex md:block"><div className="md:hidden basis-1/2">status: </div> <div className="basis-1/2">paid</div></div>

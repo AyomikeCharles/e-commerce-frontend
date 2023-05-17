@@ -201,7 +201,7 @@ const CheckOut = () => {
                 <section id="shipping">
                     <div className="md:flex">
                         <div className="basis-1/2">
-                            <div className="w-9/12 mx-auto">
+                            <div className="w-11/12 md:w-9/12 mx-auto">
                                <form>
                                     <h3 className="text-center my-5 text-2xl">Personal Details</h3>
 
@@ -339,8 +339,8 @@ const CheckOut = () => {
 
                                             </textarea>
                                         </div>
-                                        <div className="flex justify-center my-5">
-                                            <button type="button" onClick={()=>handleSection('review')}  className="bg-lime-500 rounded-r h-10 hover:bg-lime-700 mx-2 px-5 transition duration-500">Next</button>
+                                        <div className="flex justify-start my-5">
+                                            <button type="button" onClick={()=>handleSection('review')}  className="bg-lime-500 rounded h-10 text-white hover:cursor-pointer mx-2 px-5 transition duration-500">Next</button>
                                         </div>
                                     </form>
                             </div>
@@ -348,6 +348,7 @@ const CheckOut = () => {
                         <div className="basis-1/2">
 
                         <div className="my-10 w-10/12 mx-auto">
+                            <div className="max-h-[500px] overflow-y-auto">
                             {
                                 cartItems.items.map((val)=>(
                                     <div key={val.id} className="my-5 border-b-2 pb-5 flex">
@@ -362,6 +363,7 @@ const CheckOut = () => {
                                     </div>
                                 ))
                             }
+                            </div>
 
                         </div>
 
@@ -396,20 +398,23 @@ const CheckOut = () => {
                         <div className="basis-1/2">
 
                         <div className="my-10 w-10/12 mx-auto">
-                            {
-                                cartItems.items.map((val)=>(
-                                    <div key={val.id} className="my-5 border-b-2 pb-5 flex">
-                                        <img src={val.images[0]} className="w-4/12 rounded drop-shadow" alt="..."/>
-                                        <div className="px-3">
-                                            <div className="my-1">{val.title}</div>
-                                            <div className="my-1">{val.price}</div>
-                                            <div className="my-1">{val.qty}</div>
-                                            <div className="my-1">{val.qty * val.price}</div>
-                                            
+                            <div className="max-h-[500px] overflow-y-auto">
+                                {
+                                    cartItems.items.map((val)=>(
+                                        <div key={val.id} className="my-5 border-b-2 pb-5 flex">
+                                            <img src={val.images[0]} className="w-4/12 rounded drop-shadow" alt="..."/>
+                                            <div className="px-3">
+                                                <div className="my-1">{val.title}</div>
+                                                <div className="my-1">{val.price}</div>
+                                                <div className="my-1">{val.qty}</div>
+                                                <div className="my-1">{val.qty * val.price}</div>
+                                                
+                                            </div>
                                         </div>
-                                    </div>
-                                ))
-                            }
+                                    ))
+                                }
+
+                            </div>
 
                             <div className="flex justify-between my-3">
                                 <div>
@@ -433,15 +438,15 @@ const CheckOut = () => {
                                 <div>
                                     Order Total:
                                 </div>
-                                <div className="text-lime-500">
+                                <div>
                                     {cartItems.totalPrice + parseInt(formData.shippingPrice)}
                                 </div>
                             </div>
 
 
                         <div className="flex justify-center my-5">
-                            <button onClick={()=>handleSection('shipping')} className="bg-lime-500 rounded-r h-10 hover:bg-lime-700 mx-2 px-5 transition duration-500">Previous</button>
-                            <button onClick={()=>salesMutation.mutate(formData)} className="bg-lime-500 rounded-r h-10 hover:bg-lime-700 mx-2 px-5 transition pt-2 duration-500 inline-flex"> {spinner? <Spinner/> : null} Complete</button>
+                            <button onClick={()=>handleSection('shipping')} className="bg-lime-500 rounded h-10 hover:cursor-pointer mx-2 px-5 text-white transition duration-500">Previous</button>
+                            <button onClick={()=>salesMutation.mutate(formData)} className="bg-lime-500 rounded h-10 hover:cursor-pointer text-white mx-2 px-5 transition pt-2 duration-500 inline-flex"> {spinner? <Spinner/> : null} Complete</button>
                         </div>
                         </div>
 

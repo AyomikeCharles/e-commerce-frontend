@@ -52,7 +52,7 @@ const next = (val:number) => {
                         
                         <Link key={product._id} to={`/product/${product._id}`}>
                         
-                            <div  className="max-w-sm shadow-lg rounded overflow-hidden">
+                            <div  className="max-w-sm shadow-lg rounded bg-white overflow-hidden">
                                 <img className="w-full h-40 hover:scale-105 md:h-48 transition duration-500" src={product.images[0]} alt="Sunset in the mountains"/>
                                 <div className="p-2 drop-shadow-lg">
                                     <div className="text-lg truncate ...">{product.title}</div>

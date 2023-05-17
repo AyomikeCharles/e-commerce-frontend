@@ -37,12 +37,12 @@ const UserProfile = () => {
                                 <div className="md:PX-10">
                                     
 
-                                    <div className="md:flex">
-                                        <div className="basis-2/4 md:p-5 content-center">
+                                    <div className="">
+                                        <div className="basis-2/4 content-center">
                                             <h3 className="font-bold text-2xl md:mb-3">{data?.fullName}</h3>
                                             <h5>#{data?._id.slice(-3)}</h5>
                                         </div>
-                                        <div className="basis-1/4 flex justify-end my-3">
+                                        <div className="basis-1/4 flex my-3">
                                             <div>
                                                 <Link className="block rounded transition duration-500 text-lime-500 p-1 mb-2" to='/user/editprofille'>Edit Profile</Link>
                                                 <Link className="block rounded transition duration-500 text-lime-500 p-1" to='/user/changepassword'>Change Password</Link>
@@ -50,7 +50,7 @@ const UserProfile = () => {
                                         </div>
                                     </div>
 
-                                    <div className="bg-slate-100 rounded p-3 my-3">
+                                    <div className="bg-white rounded p-3 my-3">
                                         <h3 className="font-bold text-1xl mb-3">Pesonal Details</h3>
                                         <div className="my-2">
                                             Email: {data?.email}

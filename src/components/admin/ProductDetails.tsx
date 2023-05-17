@@ -10,9 +10,7 @@ import { Data } from "./../utils/Products";
 
 import { AxiosError } from "axios";
 import Loading from "../utils/Loading";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { AiTwotoneStar } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
 import { createPortal } from "react-dom"
 import { useMutation } from "react-query";
@@ -166,7 +164,7 @@ const Product = ():JSX.Element =>{
                                                     }
                                                     return (
                                                         <span key={i}>
-                                                            <FontAwesomeIcon className={color} icon={faStar}/>
+                                                            <AiTwotoneStar className={color}/>
                                                         </span>
                                                         
                                                     )                         

@@ -11,6 +11,12 @@ module.exports = {
         'print':{'raw':'print'}
       },
 
+      colors:{
+        lime:{
+          500:'#8b5cf6'
+        }
+      },
+
       fontFamily:{
         'sans':['Work Sans', 'sans-serif']
       }

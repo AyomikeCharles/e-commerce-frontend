@@ -8,6 +8,9 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import EmailVerification from './components/EmailVerification';
 import ForgetPassword from './components/ForgetPassword';
+import Search from './components/Search';
+import Category from './components/Category';
+import AllProducts from './components/AllProducts';
 
 //admin
 import AdminDahboard from './components/admin/AdminDashboard';
@@ -24,13 +27,16 @@ import InvoiceDetails from './components/admin/InvoiceDetails';
 import UserDetails from './components/admin/UserDetails';
 import AdminDetails from './components/admin/AdminDetails';
 import Profile from './components/admin/Profile';
-// import Transactions from './components/admin/Transactions';
 import EditProfile from './components/admin/EditProfile';
 import ChangePassword from './components/admin/ChangePassword';
 import EditProducts from './components/admin/EditProduct';
 import ProductDetails from './components/admin/ProductDetails';
 import EditCategories from './components/admin/EditCategories';
 import CategoryDetails from './components/admin/CategoryDetails';
+import Region from './components/admin/Region';
+import AddRegion from './components/admin/AddRegion';
+import RegionDetails from './components/admin/RegionDetails';
+import EditRegion from './components/admin/EditRegion';
 
 
 //layout
@@ -39,17 +45,6 @@ import AdminLayout from './layout/AdminLayout';
 import Protect from './res/RoleProtect';
 import roles from './res/roles';
 import LoginProtect from './res/LoginProtect';
-
-
-
-//more
-import Search from './components/Search';
-import Category from './components/Category';
-import Region from './components/admin/Region';
-import AddRegion from './components/admin/AddRegion';
-import RegionDetails from './components/admin/RegionDetails';
-import EditRegion from './components/admin/EditRegion';
-import AllProducts from './components/AllProducts';
 
 
 //users

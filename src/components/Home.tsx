@@ -29,7 +29,7 @@ const Home = ():JSX.Element=>{
             <Hero/>
             <Products/>
             <div className="mb-10 mx-3 md:mx-10">
-                <Link className="bg-lime-500 p-2 rounded" to='/products'>View All</Link>
+                <Link className="text-lime-500 p-2 rounded" to='/products'>View All</Link>
             </div>
             <Footer/>
             <ToastContainer/>

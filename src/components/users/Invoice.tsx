@@ -63,11 +63,11 @@ const UserInvoice = () =>{
                                                 value={search}
                                                 onChange={handleChange}
                                                 placeholder="search invoice"
-                                                className="border p-2 rounded-l focus:outline-none w-full bg-slate-50"  
+                                                className="shadow p-2 rounded-l focus:outline-none w-full bg-gray-50"  
                                                 />
                                         </div>
                                     </form>
-                                        <div className="bg-slate-100 hidden md:flex justify-between p-2 rounded my-2">
+                                        <div className="bg-white hidden md:flex justify-between p-2 rounded my-2">
                                             <div className="basis-1/5">transaction id</div>
                                             <div className="basis-1/5">username</div>
                                             <div className="basis-1/5">status</div>
@@ -80,7 +80,7 @@ const UserInvoice = () =>{
                                         {
                                             data?.data?.map((info:Info)=>(
 
-                                                <div key={info._id} className="bg-slate-100 md:flex justify-around p-2 rounded my-2">
+                                                <div key={info._id} className="bg-white md:flex justify-around p-2 rounded my-2">
                                                     <div className="basis-1/5 flex md:block"><div className="md:hidden basis-1/2">transaction id: </div> <div className="basis-1/2">#{info._id.slice(-6)}</div></div>
                                                     <div className="basis-1/5 flex md:block"><div className="md:hidden basis-1/2">username: </div> <div className="basis-1/2">{info?.personalDetails[0]}</div></div>
                                                     <div className="basis-1/5 flex md:block"><div className="md:hidden basis-1/2">status: </div> <div className="basis-1/2">{info.transactionStatus}</div></div>

@@ -18,9 +18,8 @@ import { Data, DataObject } from "./utils/Products";
 import { AxiosError } from "axios";
 import Loading from "./utils/Loading";
 import { Message } from "../slicer/authSlice";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
+import { FiHeart } from "react-icons/fi";
+import { AiTwotoneStar } from "react-icons/ai";
 import Spinner from "./utils/Spinner";
 import { useMutation } from "react-query";
 import wishlist from "../res/wishlist";
@@ -83,7 +82,7 @@ const Product = ():JSX.Element =>{
     const similarSlides = useRef<SwiperRef>(null)
 
     const border = {
-        border:'solid black 2px',
+        border:'solid #8b5cf6 2px',
         borderRadius:'5px',
     }
 
@@ -200,10 +199,11 @@ const Product = ():JSX.Element =>{
 
                     <div className="basis-1/2 md:ml-3 lg:px-5">
                         <div className="text-2xl font-semibold my-3">{info?.title}</div>
-                        <div className="text-xl font-semibold text-lime-500 my-1">₦{info?.price}</div>
+                        <div className="text-xl font-semibold my-1">₦{info?.price}</div>
                         <div className="text-lg font-medium my-1">Brand : {info?.brand}</div>
                         {info?.stock > 0?<div className="text-lg font-medium my-1">stock: {info?.stock}</div>:<div className="text-xl font-semibold my-3 line-through">stock: {info?.stock}</div>}
                         {info?.discountPercentage > 0?<div className="text-lg font-medium my-1">discount: {info?.discountPercentage} %</div>: null }
+                        <div className="flex">
                         {
 
                             Array(5).fill(0).map((_,i)=>{
@@ -215,34 +215,35 @@ const Product = ():JSX.Element =>{
                                 }
                                    return (
                                     <span key={i}>
-                                        <FontAwesomeIcon className={color} icon={faStar}/>
+                                        <AiTwotoneStar className={color}/>
                                     </span>
                                     
                                    )                         
                             })
                         }
+                        </div>
                         
                         <div className="my-3">
-                            <button onClick={decreaseQty} className="rounded px-3 py-1 bg-lime-500 transition duration-500  hover:bg-lime-700">
+                            <button onClick={decreaseQty} className="rounded px-3 py-1 border border-lime-500 text-lime-500 transition duration-500  hover:bg-lime-500 hover:text-white ">
                                 -
                             </button>
                             <span className="mx-5">
                                 {quantity}
                             </span>
-                            <button onClick={()=>increasQty(info?.stock)}  className="rounded px-3 py-1 bg-lime-500 transition duration-500  hover:bg-lime-700">
+                            <button onClick={()=>increasQty(info?.stock)}  className="rounded px-3 py-1 border text-lime-500 border-lime-500 transition duration-500  hover:bg-lime-500 hover:text-white">
                                 +
                             </button>
                         </div>
                         
                         <div className="my-3">
-                            <button className="p-2 rounded transition duration-500  hover:bg-lime-600 border-2" onClick={()=>dispatch(addToCart(newCartItems))}>
+                            <button className="p-2 rounded border transition duration-500  hover:bg-lime-500 hover:text-white border-lime-500" onClick={()=>dispatch(addToCart(newCartItems))}>
                                 Add to Cart
                             </button> 
-                            <Link onClick={()=>dispatch(addToCart(newCartItems))} to='/checkout' className="bg-lime-500 p-3 rounded mx-3 transition duration-500  hover:bg-lime-700">
+                            <Link onClick={()=>dispatch(addToCart(newCartItems))} to='/checkout' className="border border-lime-500 p-3 hover:text-white rounded mx-3 transition duration-500  hover:bg-lime-500">
                                 Buy Now
                             </Link>
 
-                            {Id !== '' && <button onClick={addWishlist} className="text-lime-500"><FontAwesomeIcon icon={faHeart}/></button>}
+                            {Id !== '' && <button onClick={addWishlist} className="text-lime-500"><FiHeart/></button>}
                            
                         </div>
 
@@ -290,7 +291,7 @@ const Product = ():JSX.Element =>{
                                         <img className="w-full h-40 hover:scale-105 md:h-48 transition duration-500" src={product.images[0]} alt="Sunset in the mountains"/>
                                         <div className="p-2 drop-shadow-lg">
                                             <div className="text-lg truncate ...">{product.title}</div>
-                                            <div className="font-bold text-md">${product.price}</div>
+                                            <div className="font-bold text-md">₦{product.price}</div>
                                         </div>
                                     </div>
                                 </Link>

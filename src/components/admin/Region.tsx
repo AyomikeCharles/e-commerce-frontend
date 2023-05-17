@@ -40,7 +40,7 @@ const Region = () =>{
                             <div className="px-5 py-10">
                                 <div className="mb-12 flex justify-between">
                                     <h3 className="text-2xl font-bold">States</h3>
-                                    <Link to='addregion' className="bg-lime-500 p-3 rounded">Add States</Link>
+                                    <Link to='addregion' className="text-lime-500">Add States</Link>
                                 </div>
                                 <div>
 
@@ -53,7 +53,7 @@ const Region = () =>{
                                             data?.map((state:S, i:number)=>(
                                                 <Link key={state._id} to={`regiondetails/${state._id}`}>
                                                 
-                                                    <div  className="max-w-sm rounded overflow-hidden shadow-lg">
+                                                    <div  className="max-w-sm bg-gray-50/50 rounded overflow-hidden shadow-lg">
                                                       
                                                         <div className="p-2">
                                                             <div className="">{state.state}</div>

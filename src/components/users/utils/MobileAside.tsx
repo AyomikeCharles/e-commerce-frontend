@@ -1,5 +1,5 @@
-import { faDoorOpen, faHeart, faList, faReceipt, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FiList, FiHeart, FiUser, FiXOctagon } from "react-icons/fi";
+import { BsDoorOpen, BsReceiptCutoff  } from "react-icons/bs";
 import { useEffect, useRef } from 'react';
 import { Link, useNavigate } from "react-router-dom"
 import TokenService from "../../../res/tokenService"
@@ -54,11 +54,13 @@ const MobileAside:React.FC<Props> = ({open, changeOpenState}):JSX.Element =>{
                 <nav ref={cartDrawer} id="sidebar" className="fixed -left-[100%] transition duration-500 top-0 pt-5 w-full h-full z-50 bg-white">
 
                     <div className="flex justify-between border-b px-10 py-3">
-                        <div className=""><Link to='/'><img className='w-10/12' loading='lazy' src={logo} alt="logo"/></Link></div>
+                    
+                        <div className=""><Link to='/' className="flex w-10/12"><img className='w-4/12' loading='lazy' src={logo} alt="logo"/><span className="mt-4 md:mt-5 font-bold">best<span className="text-lime-500">Se</span>ller</span></Link></div>
+                        
                         <div className='flex justify-end'>
 
-                            <button onClick={changeOpenState} className="mx-5 border px-3 rounded">
-                                <FontAwesomeIcon icon={faTimes} size='xl' className='drop-shadow-sm font-light'/>
+                            <button onClick={changeOpenState} className="mx-5">
+                                <FiXOctagon size='30' className='drop-shadow-sm font-light'/>
                             </button>
 
                         </div>
@@ -67,30 +69,30 @@ const MobileAside:React.FC<Props> = ({open, changeOpenState}):JSX.Element =>{
                 <div className="flex text-lg py-10">
             
                     <ul>
-                    <li onClick={changeOpenState} className={`my-1 rounded  px-8 py-3`}>
-                            <FontAwesomeIcon icon={faUser} size='lg' className='drop-shadow-sm mr-3 text-lime-500'/>
+                    <li onClick={changeOpenState} className={`my-1 rounded  px-8 py-3 flex`}>
+                            <FiUser size='30' className='drop-shadow-sm mr-3 text-lime-500'/>
                             <Link to='/user'>Profile</Link>
                         </li>
     
                         
-                        <li onClick={changeOpenState} className={`my-1 rounded  px-8 py-3`}>
-                            <FontAwesomeIcon icon={faList} size='lg' className='drop-shadow-sm mr-3 text-lime-500'/>
+                        <li onClick={changeOpenState} className={`my-1 rounded  px-8 py-3 flex`}>
+                            <FiList size='30' className='drop-shadow-sm mr-3 text-lime-500'/>
                             <Link to='/user/orders'>Orders</Link>
                         </li>
 
-                        <li onClick={changeOpenState} className={`my-1 rounded  px-8 py-3`}>
-                            <FontAwesomeIcon icon={faReceipt} size='lg' className='drop-shadow-sm mr-3 text-lime-500'/>
+                        <li onClick={changeOpenState} className={`my-1 rounded  px-8 py-3 flex`}>
+                            <BsReceiptCutoff size='30' className='drop-shadow-sm mr-3 text-lime-500'/>
                             <Link to='/user/invoice'>Invoice</Link>
                         </li>
 
-                        <li onClick={changeOpenState} className={`my-1 rounded px-8 py-3`}>
-                            <FontAwesomeIcon icon={faHeart} size='lg' className='drop-shadow-sm mr-3 text-lime-500'/>
+                        <li onClick={changeOpenState} className={`my-1 rounded px-8 py-3 flex`}>
+                            <FiHeart size='30' className='drop-shadow-sm mr-3 text-lime-500'/>
                             <Link to='/user/wishlist'>Wishlist</Link>
                         </li>
             
                  
-                        <li onClick={changeOpenState} className={`my-1 rounded  px-8 py-3`}>
-                            <FontAwesomeIcon icon={faDoorOpen} size='lg' className='drop-shadow-sm mr-3 text-lime-500'/>
+                        <li onClick={changeOpenState} className={`my-1 rounded  px-8 py-3 flex`}>
+                            <BsDoorOpen size='30' className='drop-shadow-sm mr-3 text-lime-500'/>
                             <button onClick={handleLogOut}>Logout</button>
                         </li>
                     </ul>

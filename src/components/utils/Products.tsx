@@ -44,7 +44,10 @@ const info = data as DataObject
     return(
         <div className="mb-24">
             <div className="mx-3 md:mx-10">
-                <div className="my-6 md:m-3 text-xl md:text-2xl font-bold">Latest products</div>
+                <div className="mt-6 text-xl md:text-2xl font-bold text-center">Latest products</div>
+                <div className="flex justify-center mb-6">
+                    <div className="border-b-2 w-40 border-lime-500"></div>
+                </div>
                 <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-7">
                     {
                     
@@ -52,7 +55,7 @@ const info = data as DataObject
                         
                         <Link key={product._id} to={`/product/${product._id}`}>
                         
-                            <div  className="max-w-sm shadow-lg rounded overflow-hidden">
+                            <div  className="max-w-sm shadow-lg rounded bg-white overflow-hidden">
                                 <img className="w-full h-40 hover:scale-105 md:h-48 transition duration-500" src={product.images[0]} alt="Sunset in the mountains"/>
                                 <div className="p-2 drop-shadow-lg">
                                     <div className="text-lg truncate ...">{product.title}</div>

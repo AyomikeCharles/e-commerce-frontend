@@ -41,7 +41,7 @@ const Categories = () =>{
                             <div className="px-5 py-10">
                                 <div className="mb-12 flex justify-between">
                                     <h3 className="text-2xl font-bold">Categories</h3>
-                                    <Link to='addcategories' className="bg-lime-500 p-3 rounded">Add Categories</Link>
+                                    <Link to='addcategories' className="text-lime-500">Add Categories</Link>
                                 </div>
                                 <div>
 
@@ -54,7 +54,7 @@ const Categories = () =>{
                                             cAtegories?.map((cats:Cats, i:number)=>(
                                                 <Link key={cats._id} to={`categorydetails/${cats._id}`}>
                                                 
-                                                    <div  className="max-w-sm rounded overflow-hidden shadow-lg flex justify-center">
+                                                    <div  className="max-w-sm rounded overflow-hidden bg-gray-50/50 py-2 shadow-lg flex justify-center">
                                                         <div className="">
                                                         <img className="mx-auto hover:scale-105 transition duration-500" src={cats?.icon} alt="" width={80} height={80}/>
                                                             <div className="text-lg">{cats.title}</div>

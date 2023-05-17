@@ -8,8 +8,7 @@ import { Data } from "../utils/Products"
 import { useMutation } from "react-query"
 import { useEffect } from "react"
 import { ToastContainer, toast } from "react-toastify"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faTrash } from "@fortawesome/free-solid-svg-icons"
+import { FiTrash2 } from "react-icons/fi"
 
 
 const Wishlist = () =>{
@@ -77,7 +76,7 @@ const Wishlist = () =>{
                                 
                                 { isSuccess && data?.product.map((product:Data)=>(
                                     
-                                    <div key={product._id} className="max-w-sm shadow-lg rounded">
+                                    <div key={product._id} className="max-w-sm bg-white shadow-lg rounded">
                                         <Link to={`/product/${product._id}`}>
                                             <div>
                                                 <img className="w-full h-40 hover:scale-105 md:h-48 transition duration-500" src={product.images[0]} alt=""/>
@@ -87,8 +86,8 @@ const Wishlist = () =>{
                                                 </div>
                                             </div>
                                         </Link>
-                                        <div className="flex justify-end px-3 text-red-500">
-                                            <button onClick={()=>remove(product._id)} ><FontAwesomeIcon icon={faTrash}/></button>
+                                        <div className="flex justify-end p-3 text-red-500">
+                                            <button onClick={()=>remove(product._id)} ><FiTrash2/></button>
                                         </div>
                                     </div>
                                 ))

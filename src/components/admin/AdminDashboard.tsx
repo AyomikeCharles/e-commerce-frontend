@@ -41,7 +41,7 @@ const AdminDahboard = () =>{
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
-                                <div className="bg-slate-300 rounded shadow p-3">
+                                <div className="bg-white rounded shadow p-3">
                                     <h3 className="mb-2">New Orders</h3>
                                     {
                                         data?.data?.map((order:Info, i:number)=>(
@@ -62,7 +62,7 @@ const AdminDahboard = () =>{
 
 
 
-                                <div className="bg-slate-300 rounded shadow p-3">
+                                <div className="bg-white rounded shadow p-3">
                                     <h3 className="mb-2">New Users</h3>
                                     {
                                         userData?.data?.map((user:User, i:number)=>(
@@ -90,7 +90,7 @@ const AdminDahboard = () =>{
 
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
-                            <div className="bg-slate-300 rounded shadow p-3">
+                            <div className="bg-white rounded shadow p-3">
                                     <h3 className="mb-2">New Invoice</h3>
                                     {
                                         cData?.data?.map((order:Info, i:number)=>(
@@ -109,7 +109,7 @@ const AdminDahboard = () =>{
                                     </div>                    
                                 </div>
 
-                                <div className="bg-slate-300 rounded shadow p-3">
+                                <div className="bg-white rounded shadow p-3">
                                     <h3 className="mb-2">New Products</h3>
                                     {
                                         info?.data?.map(product => (

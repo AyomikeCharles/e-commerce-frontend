@@ -82,11 +82,11 @@ const Users = () =>{
                                             value={search}
                                             onChange={handleChange}
                                             placeholder="search by name, price, description or category"
-                                            className="border p-2 rounded-l focus:outline-none w-full bg-slate-50"  
+                                            className="shadow p-2 rounded-l focus:outline-none w-full bg-gray-50"  
                                             />
                                     </div>
                                 </form>
-                                    <div className="bg-slate-100 hidden md:flex justify-between p-2 rounded my-2">
+                                    <div className="bg-white hidden md:flex justify-between p-2 rounded my-2">
                                         <div className="basis-1/4">user</div>
                                         <div className="basis-1/4">id</div>
                                         <div className="basis-1/4">email</div>
@@ -96,7 +96,7 @@ const Users = () =>{
                                     {
                                         allUsers.data.map((user:User)=>(
 
-                                            <div key={user._id} className="bg-slate-100 md:flex justify-around p-2 rounded my-2">
+                                            <div key={user._id} className="bg-white md:flex justify-around p-2 rounded my-2">
                 
                                                 <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/4">user: </div> <div className="basis-3/4">{user.fullName}</div></div>
                                                 <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/4">id: </div> <div className="basis-3/4">{user._id.slice(-3)}</div></div>

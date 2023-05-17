@@ -36,7 +36,7 @@ const InvoiceDetails = () =>{
         <>
             
                     <section id="content">
-                            <div className="px-5 py-10">
+                            <div className="px-3 md:px-5 py-10">
                                 <div className="mb-12 flex justify-between">
                                     <h3 className="text-2xl font-bold">Invoice Details</h3>
                                    
@@ -44,21 +44,19 @@ const InvoiceDetails = () =>{
                                 {isSuccess &&
 
                                 <div>
-                                    <div ref={printDiv} className="bg-slate-100 justify-between  rounded p-5">
+                                    <div ref={printDiv} className="bg-white justify-between  rounded p-3">
                                         <div className="flex justify-between">
                                             <div className="basis-6/12 md:basis-8/12">
                                                 <h5>
                                                     # {info._id.slice(-6)}
                                                 </h5>
-                                                <h4 className="text-2xl font-bold">
-                                                    Invoice
+                                                <h4 className="">
+                                                    <h5 className="">{info.updatedAt.slice(0, 10)}</h5>
+                                                    
                                                 </h4>
                                             </div>
                                             <div className="basis-6/12 md:basis-4/12">
-                                                <h5 className="text-center">{info.updatedAt.slice(0, 10)}</h5>
-                                                <h3 className="">
-                                                    <img className='w-10/12 md:w-8/12' loading='lazy' src={logo} alt="logo"/>
-                                                </h3>
+                                                <span className="flex w-8/12 md:w-6/12"><img className='w-4/12' loading='lazy' src={logo} alt="logo"/><span className="mt-4 md:mt-5 font-bold">best<span className="text-lime-500">Se</span>ller</span></span>
                                             </div>
                                         </div>
                                         <hr/>
@@ -97,7 +95,7 @@ const InvoiceDetails = () =>{
                                             const productPrice = (product.price) - ((product.price) * (product.discountPercentage / 100))
                                             
                                             return(
-                                                <div key={product.id} className="md:flex justify-around p-2 rounded my-2">
+                                                <div key={product.id} className="md:flex bg-slate-100 justify-around p-2 rounded my-2">
                                                     <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/2">Product: </div> <div className="basis-1/2">{product.title}</div></div>
                                                     <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/2">Quantity: </div> <div className="basis-1/2">{product.qty}</div></div>
                                                     <div className="basis-1/4 flex md:block"><div className="md:hidden basis-1/2">Price: </div> <div className="basis-1/2">{productPrice}</div></div>

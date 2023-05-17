@@ -99,10 +99,13 @@ useEffect(()=>{
                                 <div className="text-right mt-5">
                                     <Link to="/forgetpassword" className="hover:text-lime-500 transition duration-500">Forget password?</Link>
                                 </div>
-                                <Botton
-                                    spinner={spinner}
-                                    value="Sign In"
-                                />
+                                <div className="flex justify-start">
+                                    <Botton
+                                        spinner={spinner}
+                                        value="Sign In"
+                                    />
+                                </div>
+                                
                             </div>
                         </Form>
                     </Formik>
@@ -111,11 +114,11 @@ useEffect(()=>{
                     </div>
                 </div>
                 <div style={{backgroundImage:`url(${shopping})`}} className="basis-1/2 relative bg-no-repeat bg-cover bg-center">
-                    <div className=" bg-lime-500/50 h-full w-full pb-10 pt-[30%]">
+                    <div className=" h-full w-full pb-10 pt-[30%]">
                             <div className="text-center">
                                 <h4 className="text-2xl font-bold">Get Access to your Order, wishlist and lots more.</h4>
                                 <h4 className="text-1xl font-bold mb-6">Become a member</h4>
-                                <div><Link to='/signup' className="bg-lime-800 p-3 rounded text-white">Join Here</Link></div>
+                                <div><Link to='/signup' className="bg-lime-500 p-3 rounded text-white">Join Here</Link></div>
                             </div>
                     </div>
                     

@@ -1,6 +1,5 @@
 import { useAppDispatch, useAppSelector } from "../..";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { FiXOctagon } from "react-icons/fi";
 import { removeFromCart, ChangeCartItemQty, emptyCart } from "../../slicer/cartSlice";
 import { Link } from "react-router-dom";
 
@@ -42,7 +41,7 @@ const Cart:React.FC<Props> = ({open, changeOpenState}):JSX.Element =>{
                 <section ref={cartDrawer} className="top-0 -right-[100%] fixed min-h-full w-9/12 md:w-2/6 xl:w-4/12 z-20 bg-gray-100 drop-shadow-lg">
                     <div className="flex justify-end">
                         <button onClick={changeOpenState} className="mx-10 my-3">
-                            <FontAwesomeIcon icon={faTimesCircle} size='2xl' className='text-gray-300 drop-shadow-sm'/>
+                            <FiXOctagon size='30' className='text-gray-300 drop-shadow-sm'/>
                         </button>
                     </div>
                     
@@ -62,11 +61,11 @@ const Cart:React.FC<Props> = ({open, changeOpenState}):JSX.Element =>{
                                             <div className="my-1">{val.price}</div>
                                             
                                             <div className="my-1">
-                                                <button onClick={()=>dispatch(ChangeCartItemQty({operation:'increase', id:val.id}))} className="rounded mx-1 px-3 py-1 bg-lime-500 transition duration-500  hover:bg-lime-700">
+                                                <button onClick={()=>dispatch(ChangeCartItemQty({operation:'increase', id:val.id}))} className="px-3 py-1 rounded border transition duration-500  hover:bg-lime-500 hover:text-white border-lime-500">
                                                     +
                                                 </button>
                                                 <span> {val.qty} </span>
-                                                <button onClick={()=>dispatch(ChangeCartItemQty({operation:'decrease', id:val.id}))} className="rounded mx-1 px-3 py-1 bg-lime-500 transition duration-500  hover:bg-lime-700">
+                                                <button onClick={()=>dispatch(ChangeCartItemQty({operation:'decrease', id:val.id}))} className="px-3 py-1 rounded border transition duration-500  hover:bg-lime-500 hover:text-white border-lime-500">
                                                     -
                                                 </button>
                                             </div>
@@ -80,7 +79,7 @@ const Cart:React.FC<Props> = ({open, changeOpenState}):JSX.Element =>{
                             <div className="font-bold text-xl">
                                 Cart Subtotal:  {cartItems.totalPrice}
                             </div>
-                            <Link to="/checkout"  className="block w-8/12 rounded mx-auto my-4 px-4 py-2 bg-lime-500 transition duration-500  hover:bg-lime-700">
+                            <Link to="/checkout"  className="block w-8/12 rounded mx-auto my-4 px-4 py-2 border hover:text-white border-lime-500 transition duration-500  hover:bg-lime-500">
                                 Check out
                             </Link>
                             

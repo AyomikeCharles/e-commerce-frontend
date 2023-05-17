@@ -1,5 +1,5 @@
 import { PaystackButton } from "react-paystack"
-import { useNavigate, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import sales from "../res/salesService"
 import Loading from "./utils/Loading"
 import { AxiosError } from "axios"
@@ -9,7 +9,7 @@ import Footer from "./utils/Footer"
 import { Item } from "../slicer/cartSlice"
 import { ToastContainer, toast } from "react-toastify"
 import { useMutation } from "react-query"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 const Payment = () => {
 
@@ -30,6 +30,7 @@ const Payment = () => {
     
     const params = useParams()
     const id = params.transId as string
+    const [paystack, setPayStack] = useState(true)
 
     const { data, isError, isSuccess, isLoading, error } = sales.useGetOneSales(id)
 
@@ -104,9 +105,6 @@ const Payment = () => {
     }
 
 
-    
-
-
       
 
 
@@ -118,13 +116,66 @@ const Payment = () => {
                     {
                         isSuccess && 
                     
-                    <div>
-                        <p>
-                          total: ₦ {(parseInt(product?.shippingPrice) + parseInt(product?.subtotal))}
-                        </p>
-                        <div className="mt-5 bg-lime-500 p-3 rounded inline-flex">
-                            <PaystackButton {...componentProps} />
+                    <div className="md:flex justify-center md:w-8/12 mx-auto">
+                        <div className="basis-1/2 p-3">
+                            <div className="bg-white rounded p-5">
+                                <h3 className="my-3 text-lg font-bold">How would you like to pay</h3>
+                                <button onClick={()=>setPayStack(true)} className="border border-lime-500 rounded p-2 mx-2 hover:bg-lime-500 hover:text-white">Pay Stack</button>
+                                <button onClick={()=>setPayStack(false)} className="border border-lime-500 rounded p-2 mx-2 hover:bg-lime-500 hover:text-white">On delivery</button>
+                            </div>
                         </div>
+                        <div className="basis-1/2 p-3">
+                            <div className="max-h-[300px] overflow-y-auto bg-white">
+                                {
+                                    data?.products.map((val:Item)=>(
+                                        <div key={val.id} className="p-3 flex">
+                                            <img src={val.images[0]} className="w-4/12 rounded drop-shadow" alt="..."/>
+                                            <div className="px-3">
+                                                <div className="my-1">{val.title}</div>
+                                                <div className="my-1">{val.price}</div>
+                                                <div className="my-1">{val.qty}</div>
+                                                <div className="my-1">{val.qty * val.price}</div>
+                                            </div>
+                                        </div>
+                                    ))
+                                }
+                            </div>
+
+                        
+
+
+                            {paystack ?
+                                <div className="bg-white rounded px-5 pb-5">
+                                    <p className="font-bold">
+                                    total: ₦ {(parseInt(product?.shippingPrice) + parseInt(product?.subtotal))}
+                                    </p>
+                                    <div className="mt-5 bg-lime-500 text-white p-3 rounded inline-flex">
+                                        <PaystackButton {...componentProps} />
+                                    </div>
+                                </div>
+                             :
+                                <div className="bg-white rounded px-5 py-3">
+                                    <p className="font-bold">
+                                        total: ₦ {(parseInt(product?.shippingPrice) + parseInt(product?.subtotal))}
+                                    </p>
+                                    {data.shipping[1] === 'warri south' || data.shipping[0] === 'Lagos' ?
+                                        <p className="my-5">
+                                            transaction is currently been process, we will get back to you shortly, thank you for shopping with us :)
+                                        </p>
+                                        
+                                        :
+                                        <p className="my-5">
+                                            this payment method is not available in your region, kindly choose another payment method, thank you for shopping with us :)
+                                        </p>
+                                        
+                                    }
+                                    <Link className="bg-lime-500 text-white p-3 rounded " to='/'>Finish</Link>
+                                </div>
+                            }
+                            
+                            
+                        </div>
+                        
                     </div>
                     }
                 </section>

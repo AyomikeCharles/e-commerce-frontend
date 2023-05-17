@@ -143,22 +143,21 @@ const AdminDetails = () => {
                                     <div className="md:flex">
                                       
                                         <div className="basis-2/4 md:p-5 content-center">
-                                            <h3 className="font-bold text-2xl md:mb-3">{user.fullName}</h3>
                                             <h5>#{user._id.slice(-3)}</h5>
                                         </div>
-                                        <div className="basis-1/4 flex justify-end my-3">
+                                        <div className="basis-1/4 text-white flex justify-end my-3">
                                             <div>
-                                                <button className="hover:bg-lime-700 h-9 mx-2 bg-lime-500 p-2 rounded" onClick={openAdminPortal}>{user.role === roles.users? 'Make Admin' : 'Make Basic'}</button>
+                                                <button className="h-9 mx-2 bg-lime-500 p-2 rounded" onClick={openAdminPortal}>{user.role === roles.users? 'Make Admin' : 'Make Basic'}</button>
                                                 
                                             </div>
                                             <div>
-                                                <button className="hover:bg-lime-700 h-9 mx-2 bg-lime-500 p-2 rounded" onClick={openBlockPortal}>{user?.status === 'unblock'?'block':'unblock'}</button>
+                                                <button className="h-9 mx-2 bg-lime-500 p-2 rounded" onClick={openBlockPortal}>{user?.status === 'unblock'?'block':'unblock'}</button>
                                                 
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div className="bg-slate-100 rounded p-3 my-3">
+                                    <div className="bg-white rounded p-3 my-3">
                                         <h3 className="font-bold text-1xl mb-3">Pesonal Details</h3>
                                         <div>
                                             {user.email}
@@ -168,7 +167,7 @@ const AdminDetails = () => {
                                         </div>
                                     </div>
 
-                                    <div className="bg-slate-100 rounded p-3 my-3">
+                                    {/* <div className="bg-white rounded p-3 my-3">
                                         <h3 className="font-bold text-1xl mb-3">Shipping Details</h3>
                                         <div>
                                            {
@@ -177,7 +176,7 @@ const AdminDetails = () => {
                                             ))
                                            }
                                         </div>
-                                    </div>
+                                    </div> */}
                                     
                                 </div>
                                 }

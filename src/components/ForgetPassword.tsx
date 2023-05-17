@@ -8,6 +8,8 @@ import { Formik, Form } from "formik"
 import MyTextInput from "./utils/inputField/MyInput"
 import * as Yup from 'yup'
 import Botton from "./utils/Botton"
+import { AxiosError } from "axios"
+import { Message } from "../slicer/authSlice"
 
 const ForgetPassword = ():JSX.Element=>{
 
@@ -30,13 +32,21 @@ const ForgetPassword = ():JSX.Element=>{
 
       }
 
+    const err = fpMutation.error as AxiosError
+    let    errMessage = err?.response?.data as Message
+
+
       if(fpMutation.isError){
-        toast('there was an error, kindly try again')
+        if(errMessage?.message){
+            toast(errMessage?.message)
+        }else{
+            toast('Network Error')
+        }
         setSpinner(false)
 
       }
       
-    },[fpMutation.isError, fpMutation.isLoading, fpMutation.isSuccess, fpMutation.data])
+    },[fpMutation.isError, fpMutation.isLoading, fpMutation.isSuccess, fpMutation.data, fpMutation.error])
 
 
     
@@ -57,7 +67,8 @@ const ForgetPassword = ():JSX.Element=>{
                     }}
                 >
                     <Form>
-                        <div className="w-10/12 md:w-7/12 lg:w-4/12 mx-auto">
+                        <div className="px-5 md:w-[40%] mx-auto">
+                        <div className="o">
                             <MyTextInput
                                 label="Email:"
                                 name="email"
@@ -66,11 +77,13 @@ const ForgetPassword = ():JSX.Element=>{
                             />
                         </div>
 
+                        <div className="flex justify-start">
                         <Botton
                             spinner={spinner}
                             value="Submit"
-                        />
-                        
+                            />
+                        </div>
+                        </div>
                     </Form>
                 </Formik>
             </section>

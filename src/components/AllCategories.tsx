@@ -29,7 +29,7 @@ const Allcategory = ():JSX.Element=>{
         <>
             <Navbar/>
 
-            <section className="py-24 mx-5 md:mx-10">
+            <section className="py-20 mx-5 md:mx-10">
                 <div className="mb-7 text-xl md:text-2xl font-bold">All Categories</div>
                     <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4">
                             
@@ -37,7 +37,7 @@ const Allcategory = ():JSX.Element=>{
                                 isSuccess && data?.map((cats:Cats)=>(
                                 
                                 <Link key={cats._id} to={`/category/${cats._id}`}>
-                                    <div className="flex shadow rounded py-4">
+                                    <div className="flex bg-stone-50 px-3 shadow rounded hover:text-lime-500 py-4">
                                         <img src={cats.icon} className="w-10" alt=""/>
                                         <p>{cats.title}</p>
                                     </div>

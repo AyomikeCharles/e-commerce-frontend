@@ -12,7 +12,7 @@ const Footer = ():JSX.Element=>{
                 <span>Get connected with us on social networks:</span>
                 </div>
                 <div className="flex justify-center">
-                <Link to="#!" className="mr-6 text-lime-500 dark:text-neutral-200">
+                <Link to="#!" className="mr-6 hover:text-lime-500">
                     <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-4 w-4"
@@ -22,7 +22,7 @@ const Footer = ():JSX.Element=>{
                         d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
                     </svg>
                 </Link>
-                <Link to="#!" className="mr-6 text-lime-500 dark:text-neutral-200">
+                <Link to="#!" className="mr-6 hover:text-lime-500">
                     <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-4 w-4"
@@ -33,7 +33,7 @@ const Footer = ():JSX.Element=>{
                     </svg>
                 </Link>
             
-                <Link to="#!" className="mr-6 text-lime-500 dark:text-neutral-200">
+                <Link to="#!" className="mr-6 hover:text-lime-500">
                     <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-4 w-4"
@@ -51,7 +51,7 @@ const Footer = ():JSX.Element=>{
              
                 <div className='flex justify-center'>
                     <Link to='/'>
-                        <img className='md:w-11/12' loading='lazy' src={logo} alt="logo"/>
+                        <div className='flex justify-center'><Link to='/' className="flex w-8/12 md:w-6/12"><img className='w-4/12' loading='lazy' src={logo} alt="logo"/><span className="mt-4 md:mt-5 font-bold">best<span className="text-lime-500">Se</span>ller</span></Link></div>
                     </Link>
                 </div>
                     
@@ -69,16 +69,16 @@ const Footer = ():JSX.Element=>{
                     Useful links
                     </h6>
                     <p className="mb-4">
-                    <Link to="#!" className="text-lime-500">All Products</Link>
+                    <Link to="#!" className="hover:text-lime-500">All Products</Link>
                     </p>
                     <p className="mb-4">
-                    <Link to="#!" className="text-lime-500">All Categories</Link>
+                    <Link to="#!" className="hover:text-lime-500">All Categories</Link>
                     </p>
                     <p className="mb-4">
-                    <Link to="#!" className="text-lime-500">Sign in</Link>
+                    <Link to="#!" className="hover:text-lime-500">Sign in</Link>
                     </p>
                     <p>
-                    <Link to="#!" className="text-lime-500">Sign up</Link>
+                    <Link to="#!" className="hover:text-lime-500">Sign up</Link>
                     </p>
                 </div>
                 <div>
@@ -143,7 +143,7 @@ const Footer = ():JSX.Element=>{
             </div>
             <div className="bg-black p-6 text-center dark:bg-neutral-700">
                 <span>© 2023 Copyright:</span>
-                <Link className="font-semibold text-lime-500 dark:text-neutral-400"
+                <Link className="font-semibold hover:text-lime-500 dark:text-neutral-400"
                 to="https://tailwind-elements.com/"> Charles Ayomike</Link>
             </div>
             </footer>

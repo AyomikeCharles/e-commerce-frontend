@@ -165,12 +165,12 @@ const RegionDetails = ():JSX.Element =>{
                 <div className="px-5 py-10">
                     <div className="mb-12 flex justify-between">
                         <h3 className="text-2xl font-bold">State Details</h3>
-                        <Link  to={`/admin/region/editregion/${info._id}`} className="bg-lime-500 p-2 rounded mx-3 transition duration-500  hover:bg-lime-700">
+                        <Link  to={`/admin/region/editregion/${info._id}`} className="text-lime-500 p-2 rounded mx-3 transition duration-500">
                                 Edit States
                         </Link>
                     </div>
                 
-                    <div className="md:w-10/12 mx-auto">
+                    <div className="md:w-10/12 bg-white p-3 rounded mx-auto">
                         <div className="">
                     
                                 
@@ -190,7 +190,7 @@ const RegionDetails = ():JSX.Element =>{
 
                 <div className="mt-10 md:w-10/12 mx-auto">
                     <h3 className="text-xl font-bold">LGAs</h3>
-                    <div>
+                    <div className="bg-white p-3 rounded">
                         
                         {lgaIsSuccess && lgaData === null? 
 
@@ -250,7 +250,7 @@ const RegionDetails = ():JSX.Element =>{
                                         {lgaData?.lgas}
                                         <br/>
 
-                                        <button className="bg-lime-500 my-3 p-2 rounded transition duration-500  hover:bg-lime-700" onClick={showEditLga}>edit lgas</button>
+                                        <button className="bg-lime-500 my-3 p-2 rounded text-white transition duration-500 " onClick={showEditLga}>Edit lgas</button>
 
                                     </div>
                                 }

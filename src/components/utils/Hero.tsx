@@ -1,9 +1,7 @@
 import gadgetImg from './images/gadget.jpg';
 import freedv from './images/freedv.jpeg';
 import SlideShow from "./Carousel";
-import Slides from "./Slides";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faList } from "@fortawesome/free-solid-svg-icons";
+import { FiAlignJustify } from "react-icons/fi"
 import categories from '../../res/categoriesService';
 import { Message } from '../../slicer/authSlice';
 import { AxiosError } from "axios";
@@ -46,16 +44,15 @@ const Hero: React.FC = ():JSX.Element=>{
             <div className='flex'>
                 <div className='basis-3/12 xl:basis-1/3'>
 
-                <ul className="bg-lime-500 rounded py-3">
-                    <li><h4 className="ml-5 font-semibold text-xl">Categories</h4></li>
+                <ul className="bg-white shadow-md rounded py-3">
                     
                     { isSuccess &&
                     
                     cAtegories?.map((cats:Cats,i:number)=> 
                         {
-                            if(i <= 7 ){
+                            if(i <= 8 ){
                                 return (
-                                <li key={i} className="my-2 hover:font-bold flex"><Link to={`/category/${cats._id}`}><div className="basis-3/4 flex ml-4"><img className='mr-1 w-6 h-7' loading='lazy' src={cats.icon} alt={`${cats.title} category icon`} /> {cats.title}</div></Link></li>
+                                <li key={i} className="my-2 hover:text-lime-500 flex"><Link to={`/category/${cats._id}`}><div className="basis-3/4 flex ml-4"><img className='mr-1 w-6 h-7' loading='lazy' src={cats.icon} alt={`${cats.title} category icon`} /> {cats.title}</div></Link></li>
                                 )
                             }
                             return null
@@ -63,7 +60,7 @@ const Hero: React.FC = ():JSX.Element=>{
                     
                     }
 
-                    <li className="ml-5"><Link to='/categories' >See All</Link></li>
+                    <li className="ml-5 text-lime-500"><Link to='/categories' >View All</Link></li>
                 </ul>
 
                 </div>
@@ -86,16 +83,18 @@ const Hero: React.FC = ():JSX.Element=>{
         </section>
 
         <section className='block lg:hidden'>
-            <div className='w-full'>
-                <Slides></Slides>
+            
+            <div className='w-11/12 mx-auto my-7'>
+                <SlideShow></SlideShow>
             </div>
-
             <div className="mt-10">
                 <div className="grid grid-cols-4 gap-3 mx-2 text-sm">
                     <div className="text-center">
                         <Link to='/categories' >
-                            <div className="bg-lime-500 px-1 py-2 rounded">
-                                <FontAwesomeIcon icon={faList}/>
+                            <div className="bg-white px-1 py-2 rounded">
+                                <div className='flex justify-center'>
+                                    <FiAlignJustify size='30'/>
+                                </div>
                                 <div>
                                     See all
                                 </div>
@@ -109,7 +108,7 @@ const Hero: React.FC = ():JSX.Element=>{
                                 <Link key={i} to={`/category/${cats._id}`}>
                                 <div className="text-center">
                                     
-                                    <div className="bg-lime-500 px-1 py-2 rounded">
+                                    <div className="bg-white px-1 py-2 rounded">
                                         <img className='mx-auto w-7 h-8' loading='lazy' src={cats.icon} alt={`${cats.title} category icon`} /> 
                                         <div className='truncate ...'>
                                             {cats.title}

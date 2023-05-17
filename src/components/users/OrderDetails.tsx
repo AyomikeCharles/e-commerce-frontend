@@ -92,7 +92,7 @@ const UserOrderDetails = () =>{
                                 {isSuccess &&
                                 <div>
                                     <div className="">
-                                        <div className="md:flex md:space-x-3">
+                                        <div className="md:flex md:space-x-3 text-white">
                                         {
                                         info?.transactionStatus === 'processing' && info?.paymentStatus === 'unpaid' &&
                                         <div className="">
@@ -109,22 +109,23 @@ const UserOrderDetails = () =>{
                                         </div>
                                         
 
-                                        <div className="flex justify-between bg-slate-100 rounded p-5 my-3">
+                                        <div className="flex justify-between bg-white rounded p-5 my-3">
                                             <div className="">
                                                 <h5>
                                                     # {info?._id.slice(-6)}
                                                 </h5>
                                             </div>
                                             <div>
-                                                <h5>{info?.transactionStatus}</h5>
-                                                <h5>{info?.paymentStatus}</h5>
+                                                 <h5>Date: {info?.createdAt.slice(0, 10)}</h5>
+                                                <h5>Status: {info?.transactionStatus}</h5>
+                                                <h5>Payment: {info?.paymentStatus}</h5>
                                 
                                             </div>
                                         </div>
                                      
                                        
                                            
-                                            <div className="bg-slate-100 rounded p-5 my-3">
+                                            <div className="bg-white rounded p-5 my-3">
                                                 <h3 className="my-3 text-1xl font-bold">My Details</h3>
                                                 <h4>{info?.personalDetails[0]}</h4>
                                                 <h4>{info?.shipping}</h4>
@@ -134,10 +135,10 @@ const UserOrderDetails = () =>{
                                             </div>                                            
                                   
                                        
-                                        <div className="bg-slate-100 rounded p-5 my-3">
+                                        <div className="bg-white rounded p-5 my-3">
                                             <h3 className="my-3 text-1xl font-bold">Order Details</h3>
 
-                                            <div className="bg-slate-100 hidden md:flex justify-between p-2 rounded my-2">
+                                            <div className="hidden md:flex justify-between p-2 rounded my-2">
                                                 <div className="basis-1/4">Product</div>
                                                 <div className="basis-1/4">Quantity</div>
                                                 <div className="basis-1/4">Price</div>
@@ -162,7 +163,7 @@ const UserOrderDetails = () =>{
                                             
 
                                         </div>
-                                        <div className="bg-slate-100 rounded p-5 my-3">
+                                        <div className="bg-white rounded p-5 my-3">
                                             <div>
                                                 <h5>Subtotal: ₦ {info.subtotal}</h5>
                                                 <h5>Shipping: ₦ {info.shippingPrice}</h5>

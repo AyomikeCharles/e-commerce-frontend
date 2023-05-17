@@ -33,7 +33,6 @@ const OrderDetails = () =>{
     })
     const {data, isLoading, error, isSuccess, isError, refetch} = sales.useGetOneSales(id as string)
 
-
     const mErr = updateSales.error as AxiosError;
 
     useEffect(()=>{
@@ -84,7 +83,7 @@ const OrderDetails = () =>{
         <>
            
                     <section id="content">
-                            <div className="px-5 py-10">
+                            <div className="px-3 md:px-5 py-10">
                                 <div className="mb-12 flex justify-between">
                                     <h3 className="text-2xl font-bold">Order Details</h3>
                                    
@@ -94,41 +93,49 @@ const OrderDetails = () =>{
                                     <div className="">
                                         {
                                             info?.transactionStatus === 'processing' && 
-                                        <div className="flex justify-end">
+                                        <div className="flex justify-end text-white">
                                             <button className="bg-lime-500 rounded p-2" onClick={showPortal}>complete transaction</button> 
                                         </div>
                                         }
                                         
 
-                                        <div className="flex justify-between bg-slate-100 rounded p-5 my-3">
+                                        <div className="flex justify-between bg-white rounded p-5 my-3">
                                             <div className="">
                                                 <h5>
                                                     # {info?._id.slice(-6)}
                                                 </h5>
                                             </div>
                                             <div>
-                                                <h5>{info?.transactionStatus}</h5>
-                                                <h5>{info?.paymentStatus}</h5>
+                                                <h5>date: {info?.createdAt.slice(0, 10)}</h5>
+                                                <h5>status: {info?.transactionStatus}</h5>
+                                                <h5>payment: {info?.paymentStatus}</h5>
                                 
                                             </div>
                                         </div>
                                      
                                        
-                                           
-                                            <div className="bg-slate-100 rounded p-5 my-3">
-                                                <h3 className="my-3 text-1xl font-bold">Customer Details</h3>
-                                                <h4>{info?.personalDetails[0]}</h4>
-                                                <h4>{info?.shipping}</h4>
-                                                <h4>{info?.personalDetails[2]}</h4>
-                                                <h4>{info?.personalDetails[1]}</h4>
+                                           <div className="bg-white rounded p-5 my-3  md:flex justify-between">
+                                                <div className="">
+                                                    <h3 className="my-3 text-1xl font-bold">Customer Details</h3>
+                                                    <h4>{info?.personalDetails[0]}</h4>
+                                                    <h4>{info?.shipping}</h4>
+                                                    <h4>{info?.personalDetails[2]}</h4>
+                                                    <h4>{info?.personalDetails[1]}</h4>
 
-                                            </div>                                            
+                                                </div> 
+                                                <div>
+                                                    <h3 className="my-3 text-1xl font-bold">More Details</h3>
+                                                    {
+                                                        <h3>{info?.moreDetails}</h3>
+                                                    }
+                                                </div>
+                                            </div>                                           
                                   
                                        
-                                        <div className="bg-slate-100 rounded p-5 my-3">
+                                        <div className="bg-white rounded p-5 my-3">
                                             <h3 className="my-3 text-1xl font-bold">Order Details</h3>
 
-                                            <div className="bg-slate-100 hidden md:flex justify-between p-2 rounded my-2">
+                                            <div className="bg-white hidden md:flex justify-between p-2 rounded my-2">
                                                 <div className="basis-1/4">Product</div>
                                                 <div className="basis-1/4">Quantity</div>
                                                 <div className="basis-1/4">Price</div>
@@ -153,7 +160,7 @@ const OrderDetails = () =>{
                                             
 
                                         </div>
-                                        <div className="bg-slate-100 rounded p-5 my-3">
+                                        <div className="bg-white rounded p-5 my-3">
                                             <div>
                                                 <h5>Subtotal {info.subtotal}</h5>
                                                 <h5>Shipping {info.shippingPrice}</h5>

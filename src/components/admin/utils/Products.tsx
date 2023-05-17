@@ -60,7 +60,7 @@ const Products : React.FC = ():JSX.Element =>{
                         value={search}
                         onChange={handleChange}
                         placeholder="search by name, price, description or category"
-                        className="border p-2 rounded-l focus:outline-none w-full bg-slate-50"  
+                        className="shadow p-2 rounded-l focus:outline-none w-full bg-gray-50"  
                         />
                 </div>
             </form>
@@ -73,7 +73,7 @@ const Products : React.FC = ():JSX.Element =>{
                         
                         <Link key={product._id} to={`productdetails/${product._id}`}>
                         
-                            <div  className="max-w-sm rounded overflow-hidden shadow-lg">
+                            <div  className="max-w-sm rounded overflow-hidden bg-white shadow-lg">
                                 <img className="w-full h-40 md:h-48 hover:scale-105 transition duration-500" src={product.images[0]} alt="Product"/>
                                 <div className="p-2">
                                     <div className="text-lg truncate ...">{product.title}</div>

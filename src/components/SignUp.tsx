@@ -153,7 +153,7 @@ useEffect(()=>{
                              
 
 
-                            <div className="flex justify-center">
+                            <div className="flex justify-start">
                                 <Botton
                                     spinner={spinner}
                                     value="Sign Up"
@@ -169,11 +169,11 @@ useEffect(()=>{
                     </div>
                 </div>
                 <div style={{backgroundImage:`url(${shopping})`}} className="basis-1/2 relative bg-no-repeat bg-cover bg-center">
-                    <div className=" bg-lime-500/50 h-full w-full pb-10 pt-[30%] md:pt-[50%]">
+                    <div className="h-full w-full pb-10 pt-[30%] md:pt-[50%]">
                             <div className="text-center">
                                 <h4 className="text-2xl font-bold">Get Access to your Order, wishlist and lots more.</h4>
                                 <h4 className="text-1xl font-bold mb-6">Already a member</h4>
-                                <div><Link to='/login' className="bg-lime-800 p-3 rounded text-white">Login Here</Link></div>
+                                <div><Link to='/login' className="bg-lime-500 p-3 rounded text-white">Login Here</Link></div>
                             </div>
                     </div>
                     
