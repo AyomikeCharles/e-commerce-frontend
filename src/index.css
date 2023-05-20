@@ -120,25 +120,6 @@
     100% {left: -100%}
 }
 
-
-
-
-
-
-
-
-
-  @keyframes change {
-      0% { transform: rotateZ(0deg); background-color: red;}
-      25% { transform: rotateZ(180deg); background-color: blue;}
-      75% { transform: rotateZ(270deg); background-color: green;}
-      100% { transform: rotateZ(360deg); background-color: yellow;}
-    }
-
-    .loading {
-        transform-origin: top left;
-        animation: change 1s infinite cubic-bezier(0.455, 0.03, 0.5, 0.3);
-      } 
 @tailwind utilities;
 
 body{

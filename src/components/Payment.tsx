@@ -161,15 +161,20 @@ const Payment = () => {
                                     {data.shipping[1] === 'warri south' || data.shipping[0] === 'Lagos' ?
                                         <p className="my-5">
                                             transaction is currently been process, we will get back to you shortly, thank you for shopping with us :)
+                                            <div className="my-3">
+                                                <Link className="bg-lime-500 text-white p-3 rounded " to='/'>Finish</Link>
+                                            </div>
                                         </p>
                                         
                                         :
                                         <p className="my-5">
-                                            this payment method is not available in your region, kindly choose another payment method, thank you for shopping with us :)
+                    
+                                                this payment method is not available in your region, kindly choose another payment method, thank you for shopping with us :)
+                            
+                                            
                                         </p>
                                         
                                     }
-                                    <Link className="bg-lime-500 text-white p-3 rounded " to='/'>Finish</Link>
                                 </div>
                             }
                             
