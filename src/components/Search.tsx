@@ -5,7 +5,6 @@ import { Link, useParams } from "react-router-dom"
 import Loading from "./utils/Loading"
 import { Message } from "../slicer/authSlice"
 import { AxiosError } from "axios"
-import { DataObject } from "./utils/Products"
 import products from "../res/productService"
 import { useState } from 'react'
 

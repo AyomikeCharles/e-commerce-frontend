@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide, SwiperRef } from 'swiper/react';
 import 'swiper/css';
 import { Link } from 'react-router-dom';
 import products from "../../res/productService";
-import { Data } from "./../utils/Products";
 
 import { AxiosError } from "axios";
 import Loading from "../utils/Loading";

@@ -3,7 +3,6 @@ import sales from "../../res/salesService"
 import users from "../../res/userService"
 import { Info } from "../users/Orders"
 import { User } from "./Users"
-import { DataObject } from "../utils/Products"
 import products from "../../res/productService"
 
 

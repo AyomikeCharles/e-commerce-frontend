@@ -1,5 +1,4 @@
 import categories from "../../res/categoriesService"
-import { Cats } from "../utils/Hero"
 import { Link } from "react-router-dom"
 import { AxiosError } from "axios"
 import { Message } from "../../slicer/authSlice"

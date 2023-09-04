@@ -5,7 +5,6 @@ import Loading from "./utils/Loading"
 import { Message } from "../slicer/authSlice"
 import { AxiosError } from "axios"
 import categories from "../res/categoriesService"
-import { Cats } from "./utils/Hero"
 
 
 

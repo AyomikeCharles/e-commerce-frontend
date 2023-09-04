@@ -1,5 +1,3 @@
-import Navbar from "./utils/Navbar";
-import Footer from "./utils/Footer";
 import { Link } from "react-router-dom";
 import shopping from './utils/images/shopping.jpg';
 import { Formik, Form } from "formik";
@@ -68,7 +66,6 @@ useEffect(()=>{
 
     return(
         <>
-        <Navbar/>
         <section className="">
             <div className="md:flex">
                 <div className="basis-1/2 py-16">
@@ -180,7 +177,6 @@ useEffect(()=>{
                 </div>
             </div>
         </section>
-        <Footer/>
         <ToastContainer/>
         </>
     )

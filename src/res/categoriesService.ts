@@ -14,7 +14,7 @@ const categories = {
             },
 
     useGetCategories(){
-        return useQuery("categories", this.getCategories, {retry:3})
+        return useQuery("categories", this.getCategories, {retry:3, refetchOnWindowFocus:false})
     },
 
 

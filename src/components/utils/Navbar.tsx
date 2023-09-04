@@ -1,19 +1,33 @@
 
-import { FiUser, FiShoppingCart, FiChevronDown, FiSearch, FiArrowLeft, FiPhone, FiMail } from "react-icons/fi"
-import { BsHeadset } from "react-icons/bs";
+import { FiUser, FiShoppingCart, FiChevronDown, FiSearch, FiMenu, FiXOctagon } from "react-icons/fi"
 import { Link, useNavigate } from 'react-router-dom';
 import Cart from './Cart'
-import logo from './images/logo.png'
 import { useState, useRef, useEffect } from 'react'
 import { useAppSelector } from '../..'
 import useAuth from '../../res/useAuth';
-import { createPortal } from 'react-dom';
+import { AnimatePresence, motion } from "framer-motion";
+import Logo from "./Logo";
+import categories from "../../res/categoriesService";
+import shuffleArray from "../../res/shuffle";
+import Menu from "./Menu";
 
 const Navbar = ():JSX.Element=>{
 
-    const [isOpen, setIsOpen] = useState(false);
-    const [showSupourt, setShowSupourt] = useState(false)
-    const [showSupourt1, setShowSupourt1] = useState(false)
+
+    const {data, isLoading, error, isSuccess, isError } = categories.useGetCategories()
+
+    let random : Cats[] = []
+    if (isSuccess) {
+        const shuffled = shuffleArray(data);
+        random = shuffled.slice(0, 4);
+      }
+
+
+
+    const [isOpen, setIsOpen] = useState(false)
+    const [cats, setShowCats] = useState(false)
+    const [showSideBar, setShowSideBar] = useState(false)
+
 
     const cartCount = useAppSelector((state)=>state.cart)
     const { id, link } = useAuth()
@@ -39,14 +53,20 @@ const Navbar = ():JSX.Element=>{
 
     const handleScroll = () => {
         if(navRef.current !== null){
-            if (document.body.scrollTop > 70 || document.documentElement.scrollTop > 70) {
-                navRef.current.style.top = "0";
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                navRef.current.style.backgroundColor = "white";
+                navRef.current.style.paddingTop = "3px";
+                navRef.current.style.paddingBottom = "3px";
+                navRef.current.style.boxShadow = "0px 1px 2px 1px #f2f2f2";
+
             } else {
-                navRef.current.style.top = "-200px";
+                navRef.current.style.backgroundColor = "transparent";
+                navRef.current.style.paddingTop = "1px";
+                navRef.current.style.paddingBottom = "1px";
+                navRef.current.style.boxShadow = "none";
             }
         }
-        setShowSupourt(false)
-        setShowSupourt1(false)
+     
 
     }
 
@@ -62,90 +82,94 @@ const Navbar = ():JSX.Element=>{
     return(
         <>
 
-            <nav ref={navRef} className='fixed px-3 md:px-7 py-5 transistion duration-300 w-full z-10 -top-28 left-0 flex justify-between fill-transparent drop-shadow-lg bg-white text-black'>
-                <div className='basis-6/12 md:basis-3/12'>
-                    <div className='flex justify-center'><Link to='/' className="flex md:w-6/12"><img className='w-4/12' loading='lazy' src={logo} alt="logo"/><span className="mt-4 md:mt-5 font-bold">best<span className="text-lime-500">Se</span>ller</span></Link></div>
+            <nav ref={navRef} className='flex justify-between py-1 fixed w-full z-20 px-3 transition-all duration-500'>
+                <div className='basis-4/12 flex justify-center'>
+                   <Logo/>
+
                 </div>
-                <div className='md:basis-5/12 pt-3 hidden md:block'>
-                    <form>
-                        <input type="text" value={search} onChange={handleChange} className='w-4/5 rounded-l h-10 border border-lime-500 focus:outline-none px-2' placeholder="product name"/>
-                        <button onClick={handleSearch} className='w-1/5 bg-lime-500 rounded-r h-10 text-white  hover:bg-lime-700 transition duration-500'>search</button>
-                    </form>
-                </div>
-                <div className='basis-4/12 pt-5'>
+
+
+
+                <div className='basis-4/12 py-6 hidden md:block font-bold'>
                     <ul className='flex justify-between md:justify-around space-x-3 md:space-x-4'>
-                        <li onClick={showSearch}><FiSearch size="20" className='text-lime-500 md:hidden'/></li>
-                        <li className='relative flex' onMouseEnter={()=>setShowSupourt(true)} onMouseLeave={()=>setShowSupourt(false)}>
-                            <BsHeadset size="20" className='text-lime-500'/> 
-                            <span className='text-sm hover:text-lime-500 transition duration-500 hidden md:flex'> Support &nbsp;<FiChevronDown /></span>
-                            {showSupourt &&
-                                <div className='absolute z-50 top-5 w-[140px] -left-10 md:left-0 p-3 rounded shadow bg-white text-black'>
-                                    <FiPhone size="20" className='text-lime-500'/> phone
-                                    <hr className='my-1'/>
-                                    <FiMail size="20" className='text-lime-500'/> whatsapp
-                                </div>
-                            }
-                        </li>
-                        <li onClick={handleCartState} className='relative hover:cursor-pointer flex'><FiShoppingCart size="20" className='text-lime-500'/><span className='bg-lime-500 absolute -top-2 -right-[2px] md:right-[22px] w-4 h-4 text-white text-center text-[9px] rounded-[50%]'>{cartCount?.totalQty}</span> <span className='text-sm hidden md:inline transition duration-500 hover:text-lime-500'> Cart</span></li>
-                        <li>{id!== ''? <Link to={`/${link}`} className="flex"><FiUser size='20' className='text-lime-500'/> <span className='text-sm hover:text-lime-500 transition hidden md:inline duration-500'> User</span></Link> : <Link to='/login' className="flex"><FiUser size="20" className='text-lime-500'/> <span className='text-sm hidden md:inline hover:text-lime-500 transition duration-500'> User</span></Link>}</li>
-                    </ul>
-                </div>
-            </nav>
-
-
-
-            
-
-            <nav className='flex justify-between relative z-20 px-3 md:px-7 py-5 drop-shadow-lg bg-white text-black'>
-                <div className='basis-6/12 md:basis-3/12'>
-                    <div className='flex justify-center'><Link to='/' className="flex md:w-6/12"><img className='w-4/12' loading='lazy' src={logo} alt="logo"/><span className="mt-4 md:mt-5 font-bold">best<span className="text-lime-500">Se</span>ller</span></Link></div>
-
-                </div>
-                <div className='md:basis-5/12 pt-3 hidden md:block'>
-                    <form>
-                        <input type="text" value={search} onChange={handleChange} className='w-4/5 rounded-l h-10 border border-lime-500 focus:outline-none px-2' placeholder="product name"/>
-                        <button onClick={handleSearch} className='w-1/5 bg-lime-500 rounded-r h-10 text-white transition duration-500'>search</button>
-                    </form>
-                </div>
-                <div className='basis-4/12 pt-5'>
-                    <ul className='flex justify-between md:justify-around space-x-3 md:space-x-4'>
-                        <li onClick={showSearch}><FiSearch size='20' className='text-lime-500 md:hidden'/></li>
-                        <li className='relative flex' onMouseEnter={()=>setShowSupourt1(true)} onMouseLeave={()=>setShowSupourt1(false)}>
+                        <li><Link to='/'>Home</Link></li>
+                        <li><Link to='/products'>Products</Link></li>
+                        <li><Link to='/'>About</Link></li>
+                        <li><Link to='/'>Contact</Link></li>
+                        <li className='relative flex' onMouseEnter={()=>setShowCats(true)} onMouseLeave={()=>setShowCats(false)}>
                            
-                            <BsHeadset size='20' className='text-lime-500'/>
-                            <span className='text-sm hover:text-lime-500 transition duration-500 hidden md:flex'> Support &nbsp;<FiChevronDown /></span>
-                            {showSupourt1 &&
-                                <div className='absolute z-[80000000] w-[140px] top-5 -left-10 md:left-0 p-3 rounded shadow bg-white text-black'>
-                                    <div className="flex">
-                                        <FiPhone size={20} className='text-lime-500'/> phone
-                                    </div>
-                                    <hr className='my-1'/>
-                                    <div className="flex">
-                                        <FiMail size={20} className='text-lime-500'/> Whatsapp
-                                    </div>
-                                </div>
+                            <span className='md:flex'> Categories<FiChevronDown size={23} /></span>
+                            <AnimatePresence>
+                            {cats &&
+                                <motion.div 
+                                    key='show'
+                                    initial={{opacity:0, y:60}}
+                                    animate={{opacity:1, y:40}}
+                                    exit={{opacity:0}}
+                                    transition={{duration:0.4}}
+                                    className='absolute text-base font-normal space-y-3 z-[800] w-[170px] -left-10 md:left-0 p-3 rounded shadow bg-stone-700/90 text-white'
+                                >
+                                    {isSuccess && random.map((item:Cats)=>(
+                                        <div key={item._id}><Link to=''>{item.title}</Link></div>
+                                    ))
+
+                                    }
+                                    <div><Link to=''>More</Link></div>
+                                </motion.div>
                             }
+                            </AnimatePresence>
                             
                         </li>
-                        <li onClick={handleCartState} className='relative hover:cursor-pointer flex'><FiShoppingCart size='20' className='text-lime-500'/><span className='bg-lime-500 absolute -top-2 -right-[2px] md:right-[22px] w-4 h-4 text-white text-center text-[9px] rounded-[50%]'>{cartCount?.totalQty}</span> <span className='text-sm hidden md:inline transition duration-500 hover:text-lime-500'> Cart</span></li>
-                        <li>{id!== ''? <Link to={`/${link}`} className="flex"><FiUser size='20' className='text-lime-500'/> <span className='text-sm hover:text-lime-500 transition hidden md:inline duration-500'> User</span></Link> : <Link to='/login' className="flex"><FiUser size='20' className='text-lime-500'/> <span className='text-sm hidden md:inline hover:text-lime-500 transition duration-500'> User</span></Link>}</li>
+
+                    </ul>
+                </div>
+  
+                <div className='basis-4/12 py-6'>
+                    <ul className='flex justify-between md:justify-center space-x-5'>
+                        <li onClick={showSearch} className="flex"><FiSearch size='22' className=''/> <span className='hidden md:inline'> Search</span></li>
+                        <li onClick={handleCartState} className='relative hover:cursor-pointer flex'><FiShoppingCart size='22' className=''/><span className='absolute -top-2 -right-[2px] md:right-[25px] w-4 h-4 bg-black text-white text-center text-[9px] rounded-[50%]'>{cartCount?.totalQty}</span> <span className='hidden md:inline'> Cart</span></li>
+                        <li>{id!== ''? <Link to={`/${link}`} className="flex"><FiUser size='22' className=''/> <span className='hidden md:inline'> User</span></Link> : <Link to='/login' className="flex"><FiUser size='22' className=''/> <span className='hidden md:inline'> User</span></Link>}</li>
+                        <li onClick={()=>setShowSideBar(true)} className="md:hidden border p-1"><FiMenu size='22' className=''/></li>
                     </ul>
                 </div>
             </nav>
 
 
             <Cart open={isOpen} changeOpenState ={handleCartState}/>
+            <Menu showSideBar={showSideBar} setShowSideBar={setShowSideBar}/>
 
-            {showSearchModal && createPortal(
-                <div className='fixed top-0 left-0 w-full h-full bg-slate-100 z-[1000000000]'>
-                    <form>
-                        <button type='button' onClick={showSearch} className='bg-lime-500 h-10 w-1/12'><FiArrowLeft/></button>
-                        <input type="text" value={search} onChange={handleChange} className='w-10/12 rounded-l h-10 focus:outline-none px-2'/>
-                        <button onClick={handleSearch} className='w-1/12 bg-lime-500 h-10 text-white  hover:bg-lime-700 transition duration-500'><FiSearch/></button>
-                    </form>
-                </div>, document.body
-                )
+            <AnimatePresence>
+            {showSearchModal &&
+                <motion.div 
+                    initial={{opacity:0, y:-100}} 
+                    animate={{opacity:1, y:0}} 
+                    exit={{opacity:0, y:-100}}
+                    transition={{duration:0.5}}
+
+                    className='bg-black text-white fixed top-0 left-0 w-full h-full grid grid-cols-1 content-center z-[10000]'>
+                        
+                        <div>
+                            <div className="flex justify-center my-10">
+                            <button onClick={showSearch} className='h-10 mx-auro w-2/12'><FiXOctagon size={30}/></button>
+
+                            </div>
+                        <form>
+                        
+                        <div className="flex justify-center">
+                            <div className="w-10/12 md:w-7/12">
+                            <input type="text" value={search} onChange={handleChange} placeholder="search..." className='w-11/12 rounded-l bg-transparent border-b-2 focus:outline-none p-2'/>
+                        <button onClick={handleSearch} className='w-1/12 h-10'><FiSearch/></button>
+                            </div>
+                        
+                        </div>
+                        
+                        </form>
+                        </div>
+
+                </motion.div>
             }
+            </AnimatePresence>
+
            
         </>
     )

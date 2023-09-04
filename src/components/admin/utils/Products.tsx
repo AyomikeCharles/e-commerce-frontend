@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import products from "../../../res/productService";
-import { DataObject } from "../../utils/Products";
 import { AxiosError } from "axios";
 import Loading from "../../utils/Loading";
 import { Message } from "../../../slicer/authSlice";

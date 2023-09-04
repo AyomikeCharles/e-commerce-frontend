@@ -13,7 +13,6 @@ import { Autoplay } from 'swiper';
 
 import { Link } from 'react-router-dom';
 import products from "../res/productService";
-import { Data, DataObject } from "./utils/Products";
 
 import { AxiosError } from "axios";
 import Loading from "./utils/Loading";

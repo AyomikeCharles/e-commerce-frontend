@@ -3,7 +3,6 @@ import products from "../../res/productService";
 import { AxiosError } from "axios";
 import Loading from "./Loading";
 import { Message } from "../../slicer/authSlice";
-import { Data, DataObject } from "./Products";
 import { useState } from "react";
 import Pagination from "./Pagination";
 

@@ -12,7 +12,6 @@ import { AxiosError } from "axios"
 import { Message } from "../../slicer/authSlice"
 import { InitValue } from "./AddCategories"
 // import validateImage from "../../res/validateImage"
-import { Cats } from "../utils/Hero"
 import Loading from "../utils/Loading"
 import Botton from "../utils/Botton"
 
