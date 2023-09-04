@@ -10,11 +10,15 @@ import Logo from "./Logo";
 import categories from "../../res/categoriesService";
 import shuffleArray from "../../res/shuffle";
 import Menu from "./Menu";
+import { useLocation } from "react-router-dom";
 
 const Navbar = ():JSX.Element=>{
 
 
     const {data, isSuccess } = categories.useGetCategories()
+    const location = useLocation()
+
+    
 
     let random : Cats[] = []
     if (isSuccess) {
@@ -53,6 +57,7 @@ const Navbar = ():JSX.Element=>{
 
     const handleScroll = () => {
         if(navRef.current !== null){
+            
             if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
                 navRef.current.style.backgroundColor = "white";
                 navRef.current.style.paddingTop = "3px";
@@ -60,7 +65,7 @@ const Navbar = ():JSX.Element=>{
                 navRef.current.style.boxShadow = "0px 1px 2px 1px #f2f2f2";
 
             } else {
-                navRef.current.style.backgroundColor = "transparent";
+                navRef.current.style.backgroundColor = location.pathname ==='/'? "transparent" : 'white';
                 navRef.current.style.paddingTop = "1px";
                 navRef.current.style.paddingBottom = "1px";
                 navRef.current.style.boxShadow = "none";
@@ -82,7 +87,7 @@ const Navbar = ():JSX.Element=>{
     return(
         <>
 
-            <nav ref={navRef} className='flex justify-between py-1 fixed w-full z-20 px-3 transition-all duration-500'>
+            <nav ref={navRef} className={`${location.pathname ==='/'?'':'bg-white border-b'} flex justify-between py-1 fixed w-full z-20 px-3 transition-all duration-500`}>
                 <div className='basis-4/12 flex justify-center'>
                    <Logo/>
 

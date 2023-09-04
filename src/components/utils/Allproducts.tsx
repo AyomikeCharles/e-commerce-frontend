@@ -33,7 +33,7 @@ const next = (val:number) => {
 
     
     return(
-        <div className="my-24">
+        <div className="py-24">
             <div className="mx-3 md:mx-10">
                 <div className="my-6 md:m-3 flex justify-between">
                     <div className="text-xl md:text-2xl font-bold ">
@@ -46,15 +46,15 @@ const next = (val:number) => {
                 </div>
                 
 
-                <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-7">
+                <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-7">
                     { isSuccess && info?.data.map((product:Data)=>(
                         
                         <Link key={product._id} to={`/product/${product._id}`}>
                         
-                            <div  className="max-w-sm shadow-lg rounded bg-white overflow-hidden">
-                                <img className="w-full h-40 hover:scale-105 md:h-48 transition duration-500" src={product.images[0]} alt="Sunset in the mountains"/>
+                            <div  className="">
+                                <img className="w-full hover:scale-105 transition duration-500" src={product.images[0]} alt="Sunset in the mountains"/>
                                 <div className="p-2 drop-shadow-lg">
-                                    <div className="text-lg truncate ...">{product.title}</div>
+                                    <div className="truncate ...">{product.title}</div>
                                     <div className="font-bold text-md">₦{product.price}</div>
                                 </div>
                             </div>

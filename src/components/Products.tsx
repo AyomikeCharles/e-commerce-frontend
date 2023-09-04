@@ -153,7 +153,7 @@ const Product = ():JSX.Element =>{
         <>
             <Navbar/>
             {isSuccess &&
-            <section className="py-16">
+            <section className="py-24">
                 <div className="block w-11/12 md:flex md:w-10/12 mx-auto">
                     <div className="basis-1/2 md:w-1/2 mx-auto">
 
