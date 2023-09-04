@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
-import { AxiosError } from "axios";
 import categories from "../../res/categoriesService";
 import shuffleArray from "../../res/shuffle";
 
 const ThreeRandomCategories = (): JSX.Element => {
-  const { data, isLoading, error, isSuccess, isError } = categories.useGetCategories();
+  const { data, isSuccess } = categories.useGetCategories();
 
   let randomData: Cats[] = [];
 

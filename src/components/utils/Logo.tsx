@@ -1,5 +1,5 @@
 
-import { BsBag, BsBagDash } from 'react-icons/bs'
+import { BsBagDash } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 
 const Logo = () => {

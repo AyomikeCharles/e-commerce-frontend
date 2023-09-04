@@ -14,7 +14,7 @@ import Menu from "./Menu";
 const Navbar = ():JSX.Element=>{
 
 
-    const {data, isLoading, error, isSuccess, isError } = categories.useGetCategories()
+    const {data, isSuccess } = categories.useGetCategories()
 
     let random : Cats[] = []
     if (isSuccess) {

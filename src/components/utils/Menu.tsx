@@ -11,7 +11,7 @@ interface Props {
 }
 
 const Menu = ({ showSideBar, setShowSideBar }: Props) => {
-  const { data, isLoading, error, isSuccess, isError } =
+  const { data, isSuccess } =
     categories.useGetCategories();
   const [cats, setShowCats] = useState(false);
 

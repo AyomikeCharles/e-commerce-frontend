@@ -2,7 +2,6 @@ import img1 from './images/model1.jpg';
 import phone from './images/phone.jpg';
 
 import { VscArrowSmallRight } from 'react-icons/vsc'
-import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react';
 import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
