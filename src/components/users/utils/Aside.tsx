@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import TokenService from "../../../res/tokenService"
 import { useAppDispatch } from "../../.."
-import { reset, logout } from "../../../slicer/authSlice"
+import { logout } from "../../../slicer/authSlice"
 import { FiList, FiHeart, FiUser } from "react-icons/fi";
 import { BsDoorOpen, BsReceiptCutoff  } from "react-icons/bs";
 import logo from '../../utils/images/logo.png'
@@ -16,7 +16,6 @@ const Aside = () =>{
     const handleLogOut = () =>{
         TokenService.removeUser()
         dispatch(logout())
-        dispatch(reset())
         navigate('/')
     }
 

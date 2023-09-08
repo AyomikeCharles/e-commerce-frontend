@@ -28,10 +28,10 @@ const CheckOut = () => {
     
  
     const [formData, setFormData] = useState({
-        name:authUser.user? authUser?.user?.fullName: '',
-        email:authUser.user? authUser?.user?.email: '',
-        phoneNumber:authUser.user? authUser?.user?.phoneNumber: '',
-        whatsapp:authUser.user? authUser?.user?.whatsapp: '',
+        name:authUser.token? authUser?.token?.fullName: '',
+        email:authUser.token? authUser?.token?.email: '',
+        phoneNumber:authUser.token? authUser?.token?.phoneNumber: '',
+        whatsapp:authUser.token? authUser?.token?.whatsapp: '',
         state:'',
         stateName:'',
         lga:'',

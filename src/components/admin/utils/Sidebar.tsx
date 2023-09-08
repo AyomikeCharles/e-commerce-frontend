@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import TokenService from "../../../res/tokenService"
 import { useAppDispatch } from "../../.."
-import { reset, logout } from "../../../slicer/authSlice"
+import { logout } from "../../../slicer/authSlice"
 import logo from '../../utils/images/logo.png'
 import { RxDashboard } from "react-icons/rx";
 import { CiLocationOn } from "react-icons/ci";
@@ -19,7 +19,7 @@ const Sidebar = () =>{
     const handleLogOut = () =>{
         TokenService.removeUser()
         dispatch(logout())
-        dispatch(reset())
+      
         navigate('/')
     }
 

@@ -1,130 +1,140 @@
 import { Link } from "react-router-dom";
-import shopping from './utils/images/shopping.jpg';
-import { Formik, Form } from "formik";
-import * as Yup from 'yup';
-import MyTextInput from "./utils/inputField/MyInput";
-import { useAppDispatch, useAppSelector } from "..";
+import shopping from "./utils/images/shopping.jpg";
+import { AxiosError } from "axios";
+import { useAppDispatch } from "..";
 import { useNavigate } from "react-router-dom";
-import { reset, login } from "../slicer/authSlice";
-import { useEffect, useState } from "react";
+import { login } from "../slicer/authSlice";
+import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { useMutation } from "react-query";
+import authService from "../res/authservice";
 import Botton from "./utils/Botton";
+import Logo from "./utils/Logo";
 
-export interface FormDataLogin {
-    email:string,
-    password:string
-}
 const Login = () => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
 
-const naigate = useNavigate()
-const dispatch = useAppDispatch()
-const [spinner, setSpinner] = useState(false)
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
- const formData: FormDataLogin = {
-    email:'',
-    password:''
-}
- 
- const { user, isLoading, isError, isSuccess, message } = useAppSelector(state => state.authUser)
+  const mutation = useMutation({
+    mutationFn: (data: FormDataLogin) => {
+      setLoading(true);
+      return authService.login(data);
+    },
 
-useEffect(()=>{
+    onSuccess: (data) => {
+      dispatch(login(data));
+      navigate("/user");
+      setLoading(false);
+    },
+    onError: (error: AxiosError) => {
+      if (error?.response) {
+        //handle response error
+        toast("response error");
+      } else {
+        //handle request error
+        toast.error("request error");
+      }
+      setLoading(false);
+    },
+  });
 
-    if(isError){
-        if(typeof message === 'object'){
-            toast(message?.message)
-            setSpinner(false)
-        }
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.email || !formData.password) {
+      toast("please fill all field");
+      return;
     }
+    mutation.mutate(formData);
+  };
 
-    if(isLoading){
-        setSpinner(true)
-    }
-
-    if(isSuccess || user){
-        naigate('/user')
-        setSpinner(false)
-    }
-
-    dispatch(reset())
-
-}, [user, isError, isLoading, isSuccess, message, naigate, dispatch])
-
-
-    
-
-    return(
-        <>
-        <section className="">
-            <div className="md:flex">
-                <div className="basis-1/2 py-16">
-                    <Formik 
-                        initialValues={formData}
-                        validationSchema={Yup.object({
-                            email:Yup.string().email().required(),
-                            password:Yup.string().required()
-                        })}
-                        onSubmit={(values, {setSubmitting})=>{
-                            setTimeout(()=>{
-                                dispatch(login(values))
-                                setSubmitting(false)
-                            }, 400)
-                        }}
-                        >
-                        <Form>
-                            <div className="w-10/12 md:w-8/12 mx-auto ">
-                                <h3 className="font-bold text-2xl my-3"> Welcome Back </h3>
-                                <p className="mt-3 mb-6">Sign into your account here</p>
-
-                                <div className="my-3">
-                                    <MyTextInput
-                                        label="Email:"
-                                        id="email"
-                                        type="text"
-                                        name="email"
-                                    />
-                                </div>
-
-                                <div className="my-3">
-                                    <MyTextInput
-                                        label="Password:"
-                                        id="password"
-                                        type="password"
-                                        name="password"
-                                    />
-                                    
-                                </div>
-                                <div className="text-right mt-5">
-                                    <Link to="/forgetpassword" className="hover:text-lime-500 transition duration-500">Forget password?</Link>
-                                </div>
-                                <div className="flex justify-start">
-                                    <Botton
-                                        spinner={spinner}
-                                        value="Sign In"
-                                    />
-                                </div>
-                                
-                            </div>
-                        </Form>
-                    </Formik>
-                    <div className="w-8/12 mt-5 mx-auto text-center">
-                        not a member? <Link to="/signup" className="hover:text-lime-500 transition duration-500"> Sign up</Link>
-                    </div>
-                </div>
-                <div style={{backgroundImage:`url(${shopping})`}} className="basis-1/2 relative bg-no-repeat bg-cover bg-center">
-                    <div className=" h-full w-full pb-10 pt-[30%]">
-                            <div className="text-center">
-                                <h4 className="text-2xl font-bold">Get Access to your Order, wishlist and lots more.</h4>
-                                <h4 className="text-1xl font-bold mb-6">Become a member</h4>
-                                <div><Link to='/signup' className="bg-lime-500 p-3 rounded text-white">Join Here</Link></div>
-                            </div>
-                    </div>
-                    
-                </div>
+  return (
+    <>
+      <section className="">
+        <div className="md:flex">
+          <div className="basis-1/2 mt-24 md:mt-0 md:grid md:grid-cols-1 md:content-center">
+            <div className="flex justify-center">
+              <Logo />
             </div>
-        </section>
-        <ToastContainer/>
-        </>
-    )
-}
+            <form onSubmit={handleSubmit}>
+              <div className="mx-auto w-10/12 md:w-9/12">
+                <h3 className="font-bold text-2xl my-3">! Welcome Back </h3>
+                <p className="mt-3 mb-6">Sign in to your Account</p>
+                <div className="my-5">
+                  <input
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="text-input border p-2 rounded focus:outline-none w-full bg-slate-50"
+                  />
+                </div>
+
+                <div className="my-5">
+                  <input
+                    name="password"
+                    type="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    className="text-input border p-2 rounded focus:outline-none w-full bg-slate-50"
+                  />
+                </div>
+                <div className="text-right">
+                  <Link to="/forgetpassword">forget password</Link>
+                </div>
+
+                <div className="flex justify-start">
+                  <Botton value="Submit" spinner={loading} />
+                </div>
+              </div>
+            </form>
+
+            <div className="w-8/12 mt-5 mx-auto text-center">
+              not a member?{" "}
+              <Link
+                to="/signup"
+                className="hover:text-lime-500 transition duration-500"
+              >
+                {" "}
+                Sign up
+              </Link>
+            </div>
+          </div>
+          <div
+            style={{ backgroundImage: `url(${shopping})` }}
+            className="basis-1/2 relative bg-no-repeat bg-cover bg-center hidden md:block h-screen"
+          >
+            <div className=" h-full w-full grid grid-col-1 content-center">
+              <div className="text-center">
+                <h4 className="text-2xl font-bold">
+                  Get Access to your Order, wishlist and lots more.
+                </h4>
+                <h4 className="text-1xl font-bold mb-6">Become a member</h4>
+                <div>
+                  <Link
+                    to="/signup"
+                    className="bg-lime-500 p-3 rounded text-white"
+                  >
+                    Join Here
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <ToastContainer />
+    </>
+  );
+};
 
 export default Login;

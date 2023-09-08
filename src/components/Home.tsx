@@ -14,15 +14,7 @@ const Home = ():JSX.Element=>{
     
  
     const userAuth = useAppSelector(state => state.authUser)
-    const { user, isError, isLoading, isSuccess, message, logoutMessage } = userAuth
-
-    useEffect(()=>{
-        if(logoutMessage!==''){
-            if(typeof logoutMessage === 'object'){
-                toast(logoutMessage?.message)
-            }
-        }
-    }, [user, isError, isLoading, isSuccess, message, logoutMessage])
+    //handle logout here
     
     return(
         <>

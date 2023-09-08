@@ -10,7 +10,7 @@ interface MyToken {
 
 const useAuth = () =>{
     const authUser = useAppSelector(state => state.authUser)
-    const token = authUser.user?.accessToken
+    const token = authUser.token?.accessToken
     let isUser = false
     let isAdmin = false
     let isSuperAdmin = false

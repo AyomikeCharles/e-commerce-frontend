@@ -7,6 +7,22 @@ declare type Cats = {
 }
 
 
+declare type FormDataLogin = {
+      email:string,
+      password:string
+  }
+
+
+declare type signUpForm = {
+        fullName:string,
+        email:string,
+        phoneNumber:string,
+        password:string,
+        whatsapp:string,
+        tandc:boolean
+}
+
+
 declare interface Data {
     _id: string,
     title: string,

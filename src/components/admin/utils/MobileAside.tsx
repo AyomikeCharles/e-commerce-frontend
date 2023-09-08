@@ -8,7 +8,7 @@ import { useEffect, useRef } from 'react';
 import { Link, useNavigate } from "react-router-dom"
 import TokenService from "../../../res/tokenService"
 import { useAppDispatch } from "../../.."
-import { reset, logout } from "../../../slicer/authSlice"
+import { logout } from "../../../slicer/authSlice"
 import logo from '../../utils/images/logo.png'
 
 type Props = {
@@ -25,7 +25,6 @@ const MobileAside:React.FC<Props> = ({open, changeOpenState}):JSX.Element =>{
     const handleLogOut = () =>{
         TokenService.removeUser()
         dispatch(logout())
-        dispatch(reset())
         navigate('/')
     }
 
